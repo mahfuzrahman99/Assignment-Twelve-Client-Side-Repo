@@ -1,0 +1,364 @@
+[
+  {
+    "id": 1,
+    "camp_name": "Medical Expo",
+    "image": "https://i.ibb.co/N6mY2Cq/images-4.jpg",
+    "camp_fees": 1000,
+    "scheduled_date_time": "December 25, 2023, 10:00 AM - 3:00 PM",
+    "venue": "Gulshan Medical College Hospital, Dhaka",
+    "specialized_service": [
+      "Cardiovascular examination",
+      "Blood tests",
+      "Specialist consultation"
+    ],
+    "healthcare_professional": ["Cardiologists", "Lab technicians", "Doctors"],
+    "target_audience": "Open to all",
+    "description": "Explore the Medical Expo, a comprehensive health event offering cardiovascular examinations, blood tests, and specialist consultations. With expert cardiologists, lab technicians, and doctors in attendance, this expo is open to all, providing a unique opportunity for proactive health management.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
+  },
+  {
+    "id": 2,
+    "camp_name": "Child Health Fair",
+    "image": "https://i.ibb.co/PWR24gC/images-5.jpg",
+    "camp_fees": 500,
+    "scheduled_date_time": "January 15, 2024, 9:00 AM - 12:00 PM",
+    "venue": "Children's Hospital, Chittagong",
+    "specialized_service": [
+      "Pediatric nose, ear, and throat examination",
+      "Child disease prevention"
+    ],
+    "healthcare_professional": ["Pediatricians", "Nurses", "Physiotherapists"],
+    "target_audience": "Parents and caregivers of children",
+    "description": "Join the Child Health Fair at Children's Hospital, Chittagong, for pediatric nose, ear, and throat examinations, along with essential child disease prevention measures. Pediatricians, nurses, and physiotherapists will be on hand to address the unique health needs of children. Open to parents and caregivers, it's a day dedicated to ensuring the well-being of our little ones.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
+  },
+  {
+    "id": 3,
+    "camp_name": "Maternal Health Camp",
+    "image": "https://i.ibb.co/tzQPzMF/images-6.jpg",
+    "camp_fees": 1200,
+    "scheduled_date_time": "February 5, 2024, 11:00 AM - 3:00 PM",
+    "venue": "Matrisadan Hospital, Rajshahi",
+    "specialized_service": [
+      "Gynecology check-ups",
+      "Pregnancy examination",
+      "Maternal counseling"
+    ],
+    "healthcare_professional": [
+      "Gynecologists",
+      "Nurses",
+      "Sanitation and maternal education specialists"
+    ],
+    "target_audience": "Expecting mothers and women of reproductive age",
+    "description": "The Maternal Health Camp at Matrisadan Hospital, Rajshahi, focuses on the health of expecting mothers and women of reproductive age. Gynecology check-ups, pregnancy examinations, and maternal counseling services will be provided by experienced gynecologists, nurses, and sanitation specialists. Join us for a day devoted to maternal well-being and education.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
+  },
+  {
+    "id": 4,
+    "camp_name": "Orthopedic Care Camp",
+    "image": "https://i.ibb.co/cNJRCpg/images-7.jpg",
+    "camp_fees": 800,
+    "scheduled_date_time": "March 10, 2024, 9:00 AM - 2:00 PM",
+    "venue": "Orthopedic Central Hospital, Khulna",
+    "specialized_service": [
+      "Orthopedic examination",
+      "Bone care",
+      "Specialist consultation"
+    ],
+    "healthcare_professional": [
+      "Orthopedic doctors",
+      "Physiotherapists",
+      "Orthopedic specialists"
+    ],
+    "target_audience": "Individuals with orthopedic concerns",
+    "description": "Attend the Orthopedic Care Camp at Orthopedic Central Hospital, Khulna, offering free orthopedic examinations, bone care, and specialist consultations. Orthopedic doctors, physiotherapists, and specialists will address concerns related to bones and joints. This camp is dedicated to individuals with orthopedic issues, promoting mobility and well-being",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
+  },
+  {
+    "id": 5,
+    "camp_name": "Diabetes Screening Camp",
+    "image": "https://i.ibb.co/dkY8NR6/images-8.jpg",
+    "camp_fees": 600,
+    "scheduled_date_time": "April 15, 2024, 10:00 AM - 2:00 PM",
+    "venue": "City Diabetes Hospital, Dhaka",
+    "specialized_service": [
+      "Diabetes tests",
+      "Treatment for existing patients",
+      "Nutritional advice"
+    ],
+    "healthcare_professional": [
+      "Internal medicine doctors",
+      "Diabetes specialists",
+      "Nurses"
+    ],
+    "target_audience": "Individuals concerned about diabetes",
+    "description": "Discover the Diabetes Screening Camp at City Diabetes Hospital, Dhaka, providing diabetes tests, treatment for existing patients, and nutritional advice. Internal medicine doctors, diabetes specialists, and nurses will guide individuals concerned about diabetes. Join us for proactive diabetes management and overall health awareness.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
+  },
+  {
+    "id": 6,
+    "camp_name": "Migraine Management Camp",
+    "image": "https://i.ibb.co/gycB8Dx/images.jpg",
+    "camp_fees": 800,
+    "scheduled_date_time": "May 20, 2024, 11:30 AM - 3:30 PM",
+    "venue": "Neurology Center, Khulna",
+    "specialized_service": [
+      "Migraine assessment",
+      "Treatment consultation",
+      "Migraine management education"
+    ],
+    "healthcare_professional": [
+      "Neurologists",
+      "Physiotherapists",
+      "Migraine specialists"
+    ],
+    "target_audience": "Individuals suffering from migraines",
+    "description": "The Migraine Management Camp at the Neurology Center, Khulna, is tailored for individuals suffering from migraines. Offering migraine assessments, treatment consultations, and migraine management education, this camp brings together neurologists, physiotherapists, and migraine specialists. Join us to better understand and manage migraines for improved quality of life."
+  },
+  {
+    "id": 7,
+    "camp_name": "Dental Care Camp",
+    "image": "https://i.ibb.co/ByQhWxm/download.jpg",
+    "camp_fees": 700,
+    "scheduled_date_time": "June 15, 2024, 10:00 AM - 2:00 PM",
+    "venue": "Dental Wellness Center, New York",
+    "specialized_service": [
+      "Dental check-ups",
+      "Oral hygiene education",
+      "Dental consultations"
+    ],
+    "healthcare_professional": [
+      "Dentists",
+      "Dental hygienists",
+      "Oral care specialists"
+    ],
+    "target_audience": "All age groups",
+    "description": "Embrace a healthier smile at the Dental Care Camp, hosted at Dental Care Clinic, Dhaka. This camp focuses on comprehensive dental care, offering dental check-ups, oral hygiene education, and personalized dental care consultations. Expert dentists, dental hygienists, and oral care specialists will guide you in maintaining optimal oral health. Open to individuals of all ages, this camp is your gateway to a confident and vibrant smile. Join us for a day dedicated to dental wellness and personalized care"
+  },
+  {
+    "id": 8,
+    "camp_name": "Heart Health Symposium",
+    "image": "https://i.ibb.co/tzQPzMF/images-6.jpg",
+    "camp_fees": 1200,
+    "scheduled_date_time": "January 10, 2024, 9:00 AM - 4:00 PM",
+    "venue": "Cardio Wellness Center, Chicago",
+    "specialized_service": [
+      "Cardiac screenings",
+      "Nutritional counseling",
+      "Fitness workshops"
+    ],
+    "healthcare_professional": [
+      "Cardiologists",
+      "Dietitians",
+      "Fitness trainers"
+    ],
+    "target_audience": "Adults concerned about heart health",
+    "description": "Join us at the Heart Health Symposium for a day dedicated to cardiovascular well-being. Expert cardiologists will conduct screenings, provide nutritional counseling, and offer insights into maintaining a healthy heart. Discover the keys to a heart-healthy lifestyle and take proactive steps toward cardiovascular wellness."
+  },
+  {
+    "id": 9,
+    "camp_name": "Women's Wellness Expo",
+    "image": "https://i.ibb.co/hFmgVxK/images-3.jpg",
+    "camp_fees": 800,
+    "scheduled_date_time": "February 15, 2024, 10:00 AM - 3:00 PM",
+    "venue": "Women's Health Pavilion, Los Angeles",
+    "specialized_service": [
+      "Women's health screenings",
+      "Gynecological consultations",
+      "Wellness seminars"
+    ],
+    "healthcare_professional": [
+      "Gynecologists",
+      "Women's health specialists",
+      "Nutritionists"
+    ],
+    "target_audience": "Women of all ages",
+    "description": "The Women's Wellness Expo is a celebration of women's health, offering screenings, gynecological consultations, and empowering wellness seminars. Connect with leading healthcare professionals specializing in women's health to prioritize your well-being. A day designed for women of all ages to invest in their health and vitality."
+  },
+  {
+    "id": 10,
+    "camp_name": "Pediatric Immunization Drive",
+    "image": "https://i.ibb.co/GkZKxD7/images-4.jpg",
+    "camp_fees": 500,
+    "scheduled_date_time": "March 5, 2024, 8:00 AM - 1:00 PM",
+    "venue": "Community Health Center, Houston",
+    "specialized_service": [
+      "Childhood vaccinations",
+      "Pediatric health education",
+      "Child safety tips"
+    ],
+    "healthcare_professional": [
+      "Pediatricians",
+      "Nurses",
+      "Child safety experts"
+    ],
+    "target_audience": "Parents with young children",
+    "description": "Ensure the health and safety of your little ones at the Pediatric Immunization Drive. This event provides free childhood vaccinations, pediatric health education, and essential child safety tips. Partner with pediatricians and nurses to safeguard your child's health through immunization and education."
+  },
+  {
+    "id": 11,
+    "camp_name": "Senior Health Expo",
+    "image": "https://i.ibb.co/sFs2GhH/images-5.jpg",
+    "camp_fees": 600,
+    "scheduled_date_time": "April 20, 2024, 11:00 AM - 4:00 PM",
+    "venue": "Senior Living Community Center, Miami",
+    "specialized_service": [
+      "Geriatric health screenings",
+      "Memory tests",
+      "Elderly fitness sessions"
+    ],
+    "healthcare_professional": [
+      "Geriatricians",
+      "Memory care specialists",
+      "Senior fitness trainers"
+    ],
+    "target_audience": "Seniors and their caregivers",
+    "description": " Seniors and their caregivers are invited to the Senior Health Expo, an event tailored to geriatric well-being. Benefit from geriatric health screenings, memory tests, and engaging fitness sessions. Connect with specialists who understand the unique health needs of seniors and explore ways to enhance your golden years."
+  },
+  {
+    "id": 12,
+    "camp_name": "Vision Care Clinic",
+    "image": "https://i.ibb.co/tpDGzZ7/images.jpg",
+    "camp_fees": 500,
+    "scheduled_date_time": "May 10, 2024, 9:00 AM - 2:00 PM",
+    "venue": "Optical Health Center, New York",
+    "specialized_service": [
+      "Eye examinations",
+      "Prescription eyewear distribution",
+      "Eye health seminars"
+    ],
+    "healthcare_professional": [
+      "Optometrists",
+      "Ophthalmologists",
+      "Optical technicians"
+    ],
+    "target_audience": "Individuals of all ages",
+    "description": "Join us at the Vision Care Clinic for a day dedicated to eye health. Receive comprehensive eye examinations, obtain prescription eyewear, and participate in enlightening eye health seminars. Whether you're young or old, prioritize your vision with the expertise of optometrists, ophthalmologists, and optical technicians."
+  },
+  {
+    "id": 13,
+    "camp_name": "Nutrition and Fitness Expo",
+    "image": "https://i.ibb.co/FX12Jv4/images-6.jpg",
+    "camp_fees": 700,
+    "scheduled_date_time": "June 15, 2024, 10:00 AM - 3:00 PM",
+    "venue": "Fitness and Wellness Center, San Francisco",
+    "specialized_service": [
+      "Nutritional assessments",
+      "Fitness challenges",
+      "Healthy cooking demonstrations"
+    ],
+    "healthcare_professional": [
+      "Nutritionists",
+      "Fitness trainers",
+      "Dietitians"
+    ],
+    "target_audience": "Fitness enthusiasts and health-conscious individuals",
+    "description": "The Nutrition and Fitness Expo is a haven for fitness enthusiasts and health-conscious individuals. Engage in nutritional assessments, fitness challenges, and healthy cooking demonstrations. Nutritionists, fitness trainers, and dietitians will guide you on a journey to optimal health and wellness."
+  },
+  {
+    "id": 14,
+    "camp_name": "Cancer Awareness Symposium",
+    "image": "https://i.ibb.co/0rT9VFd/download-1.jpg",
+    "camp_fees": 1000,
+    "scheduled_date_time": "July 5, 2024, 10:00 AM - 4:00 PM",
+    "venue": "Oncology Research Institute, Seattle",
+    "specialized_service": [
+      "Cancer screenings",
+      "Oncology consultations",
+      "Support group sessions"
+    ],
+    "healthcare_professional": [
+      "Oncologists",
+      "Cancer care specialists",
+      "Psychologists"
+    ],
+    "target_audience": "Cancer patients, survivors, and their families",
+    "description": "Unite against cancer at the Cancer Awareness Symposium. Benefit from cancer screenings, oncology consultations, and supportive group sessions. Connect with oncologists, cancer care specialists, and psychologists to empower yourself in the fight against cancer. A day dedicated to awareness, support, and hope."
+  },
+  {
+    "id": 15,
+    "camp_name": "Dental Health Day",
+    "image": "https://i.ibb.co/XstgYmm/download-2.jpg",
+    "camp_fees": 400,
+    "scheduled_date_time": "August 10, 2024, 8:00 AM - 1:00 PM",
+    "venue": "Dental Care Clinic, Dallas",
+    "specialized_service": [
+      "Dental check-ups",
+      "Oral hygiene education",
+      "Dental care consultations"
+    ],
+    "healthcare_professional": [
+      "Dentists",
+      "Dental hygienists",
+      "Oral care specialists"
+    ],
+    "target_audience": "All age groups",
+    "description": " Smile with confidence after attending Dental Health Day. Receive dental check-ups, oral hygiene education, and personalized dental care consultations. Dentists, dental hygienists, and oral care specialists are ready to guide you toward optimal oral health. A day for all age groups to prioritize their smiles."
+  },
+  {
+    "id": 16,
+    "camp_name": "Mental Health Awareness Workshop",
+    "image": "https://i.ibb.co/9cR10S5/download.jpg",
+    "camp_fees": 900,
+    "scheduled_date_time": "September 15, 2024, 11:00 AM - 3:00 PM",
+    "venue": "Mental Wellness Center, Atlanta",
+    "specialized_service": [
+      "Mental health screenings",
+      "Therapy consultations",
+      "Mindfulness sessions"
+    ],
+    "healthcare_professional": [
+      "Psychiatrists",
+      "Therapists",
+      "Mindfulness experts"
+    ],
+    "target_audience": "Individuals interested in mental health",
+    "description": "Take a step toward mental well-being at the Mental Health Awareness Workshop. Participate in mental health screenings, therapy consultations, and mindfulness sessions. Psychiatrists, therapists, and mindfulness experts will provide valuable insights and tools for maintaining mental health."
+  },
+  {
+    "id": 17,
+    "camp_name": "Allergy and Asthma Clinic",
+    "image": "https://i.ibb.co/ZB6yCZZ/images-1.jpg",
+    "camp_fees": 300,
+    "scheduled_date_time": "October 5, 2024, 9:00 AM - 2:00 PM",
+    "venue": "Allergy Care Center, Detroit",
+    "specialized_service": [
+      "Allergy testing",
+      "Asthma management",
+      "Allergen avoidance tips"
+    ],
+    "healthcare_professional": [
+      "Allergists",
+      "Respiratory therapists",
+      "Allergy specialists"
+    ],
+    "target_audience": "Individuals with allergies and asthma",
+    "description": "Breathe easy with the Allergy and Asthma Clinic, offering allergy testing, asthma management, and allergen avoidance tips. Allergists, respiratory therapists, and allergy specialists will guide you in understanding and managing allergies and asthma. A day dedicated to respiratory well-being for individuals with these conditions."
+  },
+  {
+    "id": 18,
+    "camp_name": "Community Blood Drive",
+    "image": "https://i.ibb.co/FnpqTVQ/images-7.jpg",
+    "camp_fees": 600,
+    "scheduled_date_time": "November 10, 2024, 10:00 AM - 4:00 PM",
+    "venue": "Community Health Center, Phoenix",
+    "specialized_service": [
+      "Blood donation",
+      "Blood pressure checks",
+      "Health and wellness resources"
+    ],
+    "healthcare_professional": ["Phlebotomists", "Nurses", "Health educators"],
+    "target_audience": "Community members willing to donate blood",
+    "description": "Make a life-saving impact at the Community Blood Drive. Join us for blood donation, blood pressure checks, and access to health and wellness resources. Phlebotomists, nurses, and health educators are ready to support a community-wide effort to ensure a stable and healthy blood supply. Your donation can save lives!"
+  }
+]
