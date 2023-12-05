@@ -33,7 +33,7 @@ const AllUsers = () => {
           refetch();
           Swal.fire({
             title: "Removed!",
-            text: `${user?.name} has been removed from users lists.`,
+            text: `${user?.name} has been Removed from users lists.`,
             icon: "success",
           });
         }
@@ -41,7 +41,7 @@ const AllUsers = () => {
         console.error("Error removing user:", error);
         Swal.fire({
           title: "Error",
-          text: "An error occurred while removing user.",
+          text: "An error occurred while Removing User.",
           icon: "error",
         });
       }
