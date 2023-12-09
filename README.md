@@ -6,7 +6,11 @@
 
 ## Overview
 
-- This is  brief overview of Our website, its purpose, and the features it offers.
+- This is brief overview of Our website, its purpose, and the features it offers.
+
+## Technology's:
+
+- CSS, HTML, Tailwindcss, Javascript, react, node.js, express, mongodb,
 
 ## Features
 
