@@ -4,13 +4,23 @@
 
 - **Live Link:** [CareCampusPro](https://assignment-twelve-c5a2f.web.app)
 
+## Sever Repo Link
+
+- **Live Link:** [CareCampusPro](https://github.com/mahfuzrahman99/Assignment-Twelve-Server-Side)
+
 ## Overview
 
 - This is brief overview of Our website, its purpose, and the features it offers.
 
-## Technology's:
+## Tech Stack
 
-- CSS, HTML, Tailwindcss, Javascript, react, node.js, express, mongodb,
+*Client:* React, TailwindCSS, 
+
+*Server:* Node, Express
+
+*Database:* MongoDb (Mongoose) 
+
+*Authentication:* Firebase, JWT
 
 ## Features
 
@@ -60,3 +70,6 @@
 
 12. **Refund Management:**
     -Integrate a robust refund system within the payment process, allowing organizers to efficiently handle participant refund requests. Implement a "Refund" button within the camp details, triggering a seamless refund workflow that updates both payment and confirmation statuses, ensuring transparency and timely financial transactions.
+
+
+<img alt="Home Page" src="https://i.ibb.co/SwDb23z/screencapture-assignment-twelve-c5a2f-web-app-2023-12-09-12-48-24.png"/>
