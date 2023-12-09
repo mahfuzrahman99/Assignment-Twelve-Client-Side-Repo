@@ -6,7 +6,7 @@
 
 ## Sever Repo Link
 
-- **Live Link:** [CareCampusPro](https://github.com/mahfuzrahman99/Assignment-Twelve-Server-Side)
+- **Repo Link:** [CareCampusPro](https://github.com/mahfuzrahman99/Assignment-Twelve-Server-Side)
 
 ## Overview
 
