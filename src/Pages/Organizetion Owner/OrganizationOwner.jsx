@@ -25,7 +25,7 @@ const OrganizationOwner = () => {
           </p>
           <p>
             A few years back, I finished culinary school and have been working
-            in the kitchen ever since. This is where I found out I would like to help others  .
+            in the medical ever since. This is where I found out I would like to help others  .
           </p>
           <p className="bg-clip-text text-transparent bg-gradient-to-l from-red-400 to-blue-400 font-bold">
             Learn more about me
