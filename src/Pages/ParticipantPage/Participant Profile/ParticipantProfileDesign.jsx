@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { PhotoView } from "react-photo-view";
 import useUsers from "../../../Hooks/useUsers";
 
 const ParticipantProfileDesign = ({ user }) => {
@@ -22,18 +23,49 @@ const ParticipantProfileDesign = ({ user }) => {
       <div className="">
         <div className="md:grid grid-cols-2">
           <div className="flex justify-center col-span-1">
-            <img className="h-[250px]" src={user?.photoURL} alt="" />
+            <PhotoView src={user?.photoURL}>
+              <img className="h-[250px]" src={user?.photoURL} alt="" />
+            </PhotoView>
           </div>
           <div className=" p-4 font-medium">
-            <p><span className="text-lg font-bold">Phone: </span>{phoneNumber}</p>
-            <p><span className="text-lg font-bold">Address: </span>{address}</p>
-            <p><span className="text-lg font-bold">Nationality: </span>{nationality}</p>
-            <p><span className="text-lg font-bold">Date of birth: </span>{dateOfBirth}</p>
-            <p><span className="text-lg font-bold">Educational background: </span>{background}</p>
-            <p><span className="text-lg font-bold">Education status: </span>{educationStatus}</p>
-            <p><span className="text-lg font-bold">Expert in: </span>{training}</p>
-            <p><span className="text-lg font-bold">Graduate in: </span>{graduation}</p>
-            <p><span className="text-lg font-bold">Resume link: </span>{resume}</p>
+            <p>
+              <span className="text-lg font-bold">Phone: </span>
+              {phoneNumber}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Address: </span>
+              {address}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Nationality: </span>
+              {nationality}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Date of birth: </span>
+              {dateOfBirth}
+            </p>
+            <p>
+              <span className="text-lg font-bold">
+                Educational background:{" "}
+              </span>
+              {background}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Education status: </span>
+              {educationStatus}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Expert in: </span>
+              {training}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Graduate in: </span>
+              {graduation}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Resume link: </span>
+              {resume}
+            </p>
           </div>
         </div>
       </div>

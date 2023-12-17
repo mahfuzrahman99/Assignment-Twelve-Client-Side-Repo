@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ParticipantUser from "../Layouts/ParticipantUser";
 import Home from "../Pages/ParticipantPage/Home/Home";
 import Register from "../Pages/Shared/Register";
-import ContactUs from "../Pages/ContactUs/ContactUs";
+// import ContactUs from "../Pages/ContactUs/ContactUs";
 import PopularCampDetails from "../Components/Popular Campus/PopularCampDetails";
 import Login from "../Login";
 import AvailableCamps from "../Pages/ParticipantPage/Available Camps Page/AvailableCamps";
@@ -26,6 +26,7 @@ import ProfessionalsDashboard from "../Layouts/ProfessionalsDashboard";
 import ProfessionalProfile from "../Pages/Professional Page/Professional Profile/ProfessionalProfile";
 import PrivetRout from "./PrivetRout";
 import ManageUpcomingCamp from "../Pages/ParticipantPage/Home/Show Upcoming Camps/ManageUpcomingCamp";
+import Contact_Us from "../Pages/ContactUs/Contact_Us";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contactUs",
-        element: <ContactUs />,
+        element: <Contact_Us />,
       },
       {
         path: "/camp_details/:campId",

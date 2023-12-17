@@ -9,9 +9,9 @@ const OrganizationOwner = () => {
     <SectionTitle heading={"organization owner"} subHeading={"Hurry Up..."}/>
       <div className="md:grid grid-cols-2 justify-center items-center gap-4 md:p-6">
         <motion.div className="col-span-1">
-          <PhotoView src="https://i.ibb.co/wKJ8P4X/model-2911332-1280-1.jpg">
+          <PhotoView src="https://i.ibb.co/4p8FL0V/Untitled-design-1.jpg">
             <img
-              src="https://i.ibb.co/wKJ8P4X/model-2911332-1280-1.jpg"
+              src="https://i.ibb.co/4p8FL0V/Untitled-design-1.jpg"
               className="rounded-lg md:h-[350px] w-full"
               alt=""
             />

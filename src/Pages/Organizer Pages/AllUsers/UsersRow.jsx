@@ -5,23 +5,24 @@ import { IoPersonRemoveOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAdmin from "../../../Hooks/useAdmin";
+import { PhotoView } from "react-photo-view";
 
 const UsersRow = ({ user, i, handleRemove, handleMakeAdmin }) => {
   const { user: user1 } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
-
-
 
   return (
     <>
       <tr className="bg-gray-100">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">
-          <img
-            className="h-6"
-            src={user.photoURL || user1.photoURL}
-            alt={user.name}
-          />
+          <PhotoView src={user.photoURL || user1.photoURL}>
+            <img
+              className="h-6"
+              src={user.photoURL || user1.photoURL}
+              alt={user.name}
+            />
+          </PhotoView>
         </td>
         <td className="py-2 px-4 border-b-4">{user.name}</td>
         <td className="py-2 px-4 border-b-4">{user.email}</td>
@@ -50,12 +51,18 @@ const UsersRow = ({ user, i, handleRemove, handleMakeAdmin }) => {
           )}
         </td> */}
         <td className="py-2 px-4 border-b-4">
-          { <button
-            onClick={() => handleRemove(user._id, user)}
-            className={`${isAdmin ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled" : "bg-red-500 text-white px-2 py-1 rounded ml-2"}`}
-          >
-            <IoPersonRemoveOutline />
-          </button>}
+          {
+            <button
+              onClick={() => handleRemove(user._id, user)}
+              className={`${
+                isAdmin
+                  ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
+                  : "bg-red-500 text-white px-2 py-1 rounded ml-2"
+              }`}
+            >
+              <IoPersonRemoveOutline />
+            </button>
+          }
         </td>
       </tr>
     </>

@@ -16,7 +16,7 @@ const UsersRow = ({ camp, i, handleDelete }) => {
       <tr className="bg-gray-100 text-xs">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">
-          <PhotoView>
+          <PhotoView src={camp?.image || user1?.photoURL}>
             <img
               className="h-12"
               src={camp?.image || user1?.photoURL}

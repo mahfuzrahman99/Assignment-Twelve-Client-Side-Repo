@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import UpdateCamps from "../../Pages/Organizer Pages/Manage Camp/UpdateCamps";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useUsers from "../../Hooks/useUsers";
+import { PhotoView } from "react-photo-view";
 
 const PopularCampDetails = () => {
   // const [isOrganizer] = useOrganizer();
@@ -27,10 +28,10 @@ const PopularCampDetails = () => {
     if (userRole) {
       if (userRole.role === "Organizer") {
         setOrganizer(true); //Participant
-      } 
+      }
       // else if (userRole.role === "Participant") {
       //   setParticipant(true); //Professionals
-      // } 
+      // }
       // else if (userRole.role === "Professionals") {
       //   setProfessional(true);
       // }
@@ -57,7 +58,9 @@ const PopularCampDetails = () => {
       <SectionTitle heading={"camp details"} subHeading={"Hurry Up..."} />
       <div className="md:grid grid-cols-2 max-w-6xl mx-auto my-8">
         <div className="col-span-1">
-          <img className="w-full h-full rounded-md" src={image} alt="" />
+          <PhotoView src={image}>
+            <img className="w-full h-full rounded-md" src={image} alt="" />
+          </PhotoView>
         </div>
         <div className="p-8 space-y-2">
           <p className=" md:text-xl">

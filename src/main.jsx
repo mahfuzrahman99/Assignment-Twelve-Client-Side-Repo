@@ -7,6 +7,7 @@ import { PhotoProvider } from "react-photo-view";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./Provider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "react-photo-view/dist/react-photo-view.css";
 
 const queryClient = new QueryClient();
 

@@ -9,9 +9,9 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import useUsers from "../../../../Hooks/useUsers";
 import UpdateUpcomingCamp from "./UpdateUpcomingCamp";
 import JoinProfessionalCampModal from "../../../Professional Page/Professional Profile/JoinProfessionalCampModal";
+import { PhotoView } from "react-photo-view";
 
 const UpcomingCampDetails = () => {
-  
   const [showModal, setShowModal] = useState(false);
   const upcomingCampus = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -34,7 +34,7 @@ const UpcomingCampDetails = () => {
       }
     }
   }, [user, users]);
-console.log(isOrganizer, isParticipant, isProfessional);
+  console.log(isOrganizer, isParticipant, isProfessional);
   const {
     image,
     camp_name,
@@ -55,7 +55,13 @@ console.log(isOrganizer, isParticipant, isProfessional);
       <SectionTitle heading={"camp details"} subHeading={"Hurry Up..."} />
       <div className="md:grid grid-cols-2 max-w-6xl mx-auto my-3 md:my-8">
         <div className="col-span-1">
-          <img className="w-full h-[250px] md:h-[450px] rounded-md" src={image} alt="" />
+          <PhotoView src={image}>
+            <img
+              className="w-full h-[250px] md:h-[450px] rounded-md"
+              src={image}
+              alt=""
+            />
+          </PhotoView>
         </div>
         <div className="p-8 space-y-2">
           <p className="text-xl">
@@ -91,7 +97,8 @@ console.log(isOrganizer, isParticipant, isProfessional);
             {description}
           </p>
           <div className=" flex justify-end">
-              { isOrganizer && <>
+            {isOrganizer && (
+              <>
                 <button
                   onClick={() => setShowModal(true)}
                   className="md:btn btn-md bg-gray-200 rounded-lg w-2/4 md:w-1/3"
@@ -103,8 +110,10 @@ console.log(isOrganizer, isParticipant, isProfessional);
                   showModal={showModal}
                   setShowModal={setShowModal}
                 />
-              </>}
-              { isParticipant && <>
+              </>
+            )}
+            {isParticipant && (
+              <>
                 <button
                   className="md:btn btn-md bg-gray-200 rounded-lg w-2/4 md:w-1/3"
                   onClick={() => setShowModal(true)}
@@ -116,20 +125,23 @@ console.log(isOrganizer, isParticipant, isProfessional);
                   setShowModal={setShowModal}
                   upcomingCamp={upcomingCampus}
                 />
-              </>}
-              { isProfessional && <>
+              </>
+            )}
+            {isProfessional && (
+              <>
                 <button
                   className="md:btn btn-md bg-gray-200 rounded-lg w-2/4 md:w-1/3"
                   onClick={() => setShowModal(true)}
                 >
-                 Interested Upcoming
+                  Interested Upcoming
                 </button>
                 <JoinProfessionalCampModal
                   showModal={showModal}
                   setShowModal={setShowModal}
                   upcomingCamp={upcomingCampus}
                 />
-              </>}
+              </>
+            )}
           </div>
         </div>
       </div>

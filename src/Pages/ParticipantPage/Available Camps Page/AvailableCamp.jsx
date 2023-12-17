@@ -2,6 +2,7 @@
 
 // import { useState } from "react";
 // import JoinCampModal from "./JoinCampModal";
+import { PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
 const AvailableCamp = ({ camp }) => {
@@ -18,12 +19,18 @@ const AvailableCamp = ({ camp }) => {
     description,
     participants,
   } = camp;
-console.log(camp);
+  console.log(camp);
   return (
     <div>
       <div className="md:grid grid-cols-2 justify-between rounded-lg shadow-lg gap-4 p-4 bg-[#6db2da] text-[#0F1E1E] md:h-[480px]">
         <div className="col-span-1">
-          <img className="md:h-[200px] h-[170px] w-full rounded-md" src={image} alt="" />
+          <PhotoView src={image}>
+            <img
+              className="md:h-[200px] h-[170px] w-full rounded-md"
+              src={image}
+              alt=""
+            />
+          </PhotoView>
         </div>
         <div className="col-span-1">
           <p className="text-xl">
