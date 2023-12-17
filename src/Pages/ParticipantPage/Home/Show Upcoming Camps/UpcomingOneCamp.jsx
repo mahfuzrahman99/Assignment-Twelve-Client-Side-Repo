@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 
+import { PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
@@ -19,24 +20,24 @@ const UpcomingOneCamp = ({ camp }) => {
 
   return (
     <div>
-      <div className="mb-4 font-semibold bg-[#54b9f4] rounded-lg relative">
-        <div className="h-[450px] card shadow-xl">
+      <div className="mb-4 bg-[#54b9f4] rounded-lg relative">
+        <div className="h-[480px] card shadow-xl">
           <figure>
-            <img src={image} alt="Cars" className="h-[220px] w-full" />
+            <PhotoView src={image}>
+              <img src={image} alt="Cars" className="h-[180px] w-full" />
+            </PhotoView>
           </figure>
-          <div className="card-body p-4">
+          <div className="card-body p-4 flex flex-col justify-between">
             <div className="">
               <h2 className="text-lg">
-                Camp Name:{" "}
-                <span className="text-[#1e303b] font-bold">
-                  {camp_name}
+                <span className="text-[#1e303b] font-semibold">
+                  Camp Name:{" "}
                 </span>
+                {camp_name}
               </h2>
               <h2 className="">
-                Schedule:{" "}
-                <span className="">
-                  {scheduled_date_time}
-                </span>
+                <span className="font-semibold">Schedule:</span>
+                {scheduled_date_time}
               </h2>
               <p>
                 <span className=" font-semibold">Venue: </span>
@@ -47,16 +48,18 @@ const UpcomingOneCamp = ({ camp }) => {
                 {target_audience}
               </p>
               <p>
-                <span className=" font-semibold">Audience: </span>
+                <span className=" font-semibold">Service: </span>
                 {specialized_service}
               </p>
               <p>
-                <span className=" font-semibold">Audience: </span>
+                <span className=" font-semibold">Professional: </span>
                 {healthcare_professional}
               </p>
             </div>
             <div className="flex justify-end">
-                <Link to={`/upcoming_camp_details/${_id}`}><button className="btn btn-sm">View Details</button></Link>
+              <Link to={`/upcoming_camp_details/${_id}`}>
+                <button className="btn btn-sm">View Details</button>
+              </Link>
             </div>
           </div>
         </div>

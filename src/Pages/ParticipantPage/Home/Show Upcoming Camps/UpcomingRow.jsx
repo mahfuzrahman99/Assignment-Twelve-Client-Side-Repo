@@ -8,12 +8,13 @@ import { MdPublish } from "react-icons/md";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import UpdateUpcomingCamp from "./UpdateUpcomingCamp";
+import { PhotoView } from "react-photo-view";
 
-const UpcomingRow = ({ camp, i, handleDelete, refetch,ORManganate }) => {
+const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
   const { user: user1 } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const axiosSecure = useAxiosSecure();
-//   const OrManagemant = {...ORManganate}
+  //   const OrManagemant = {...ORManganate}
   const handlePublish = async (id, camp) => {
     const confirmed = await Swal.fire({
       title: "Are you sure?",
@@ -71,11 +72,13 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch,ORManganate }) => {
       <tr className="bg-gray-100 text-xs">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">
-          <img
-            className="h-12"
-            src={camp?.image || user1?.photoURL}
-            alt={camp?.camp_name}
-          />
+          <PhotoView>
+            <img
+              className="h-12"
+              src={camp?.image || user1?.photoURL}
+              alt={camp?.camp_name}
+            />
+          </PhotoView>
         </td>
         <td className="py-2 px-4 border-b-4">{camp?.camp_name}</td>
         <td className="py-2 px-4 border-b-4">{camp?.scheduled_date_time}</td>
@@ -91,12 +94,8 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch,ORManganate }) => {
           {camp?.description.slice(0, 20)}
         </td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
-          <button
-            className="flex justify-center m-1 p-1 rounded bg-[#6db2da]"
-          >
-            <span className="text-4xl">
-            Accept
-            </span>
+          <button className="flex justify-center m-1 p-1 rounded bg-[#6db2da]">
+            <span className="text-4xl">Accept</span>
           </button>
         </td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
@@ -109,7 +108,7 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch,ORManganate }) => {
             </span>
           </button>
           <UpdateUpcomingCamp
-          refetch={refetch}
+            refetch={refetch}
             camp={camp}
             showModal={showModal}
             setShowModal={setShowModal}
@@ -133,20 +132,20 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch,ORManganate }) => {
         </td>
         <td className="py-2 px-4 border-b-4">
           {/* {!OrManagemant?.interested > 2 ? ( */}
-            <button
-              onClick={() => handlePublish(camp._id, camp)}
-              className={`${
-                user1
-                  ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
-                  : "bg-red-500 text-white px-2 py-1 rounded ml-2"
-              }`}
-            >
-              <span className="text-3xl">
-                <MdPublish />
-              </span>
-            </button>
+          <button
+            onClick={() => handlePublish(camp._id, camp)}
+            className={`${
+              user1
+                ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
+                : "bg-red-500 text-white px-2 py-1 rounded ml-2"
+            }`}
+          >
+            <span className="text-3xl">
+              <MdPublish />
+            </span>
+          </button>
           {/* ) : ( */}
-            {/* <button
+          {/* <button
               className={`${
                 user1
                   ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"

@@ -3,8 +3,9 @@
 import { Link } from "react-router-dom";
 // import useJoinCamp from "../../Hooks/useJoinCamp";
 import useCampus from "../../Hooks/useCampus";
+import { PhotoView } from "react-photo-view";
 
-const PopularCampOneCard = ({ camp }) => {
+const PopularOneCampCard = ({ camp }) => {
   // console.log(camp);
   const [campus] = useCampus();
   const {
@@ -25,10 +26,15 @@ const PopularCampOneCard = ({ camp }) => {
   // console.log(campData.participants);
   return (
     <div>
-      <div className="md:grid grid-cols-2 mx-2 md:mx-auto bg-[#6db2da] p-4 rounded-lg text-[#0F1E1E] h-[510px] md:h-[410px]">
-        <div className="col-span-1">
-          <img className="h-[150px] w-full rounded-lg" src={image} alt="" />
+      <div className="md:grid grid-cols-2 justify-between mx-2 md:mx-auto bg-[#6db2da] p-4 rounded-lg text-[#0F1E1E] h-[510px] md:h-[530px]">
+        <div className="col-span-2">
+          <PhotoView src={image}>
+            <img className="h-[250px] w-full rounded-lg" src={image} alt="" />
+          </PhotoView>
         </div>
+        <h1 className="col-span-2 mt-2">
+          <span className="font-semibold">Camp Name:</span> {camp_name}
+        </h1>
         <div className="col-span-1 p-2">
           <p>
             <span className="font-semibold">Fees:</span> ${camp_fees}
@@ -37,26 +43,21 @@ const PopularCampOneCard = ({ camp }) => {
             <span className="font-semibold">Date:</span> {scheduled_date_time}
           </p>
           <p>
-            <span className="font-semibold">Venue:</span> {venue}
-          </p>
-          <p>
-            <span className="font-semibold"></span> {target_audience}
+            <span className="font-semibold">Audience: </span> {target_audience}
           </p>
         </div>
-        <h1 className="col-span-2">
-          <span className="font-semibold">Camp Name:</span> {camp_name}
-        </h1>
-        <div className="col-span-2 flex justify-between p-2">
+        <div className="col-span-1 p-2">
           <div>
-            <span className="font-semibold">
-              Services: {specialized_service}
-            </span>
+            <span className="font-semibold">Services:</span>
+            {specialized_service}
           </div>
           <div>
-            <span className="font-semibold">
-              Professionalists: {healthcare_professional}
-            </span>
+            <span className="font-semibold">Professionalists:</span>
+            {healthcare_professional}
           </div>
+          <p>
+            <span className="font-semibold">Venue:</span> {venue}
+          </p>
         </div>
         <div className="col-span-2 flex justify-between">
           <div>
@@ -66,7 +67,9 @@ const PopularCampOneCard = ({ camp }) => {
           </div>
           <div>
             <Link to={`/camp_details/${_id}`}>
-              <button className="md:btn btn-sm bg-white rounded-lg  uppercase">More Details</button>
+              <button className="md:btn btn-sm bg-white rounded-lg  uppercase">
+                More Details
+              </button>
             </Link>
           </div>
         </div>
@@ -75,4 +78,4 @@ const PopularCampOneCard = ({ camp }) => {
   );
 };
 
-export default PopularCampOneCard;
+export default PopularOneCampCard;

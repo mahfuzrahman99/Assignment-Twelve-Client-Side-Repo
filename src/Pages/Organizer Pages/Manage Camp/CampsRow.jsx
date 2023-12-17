@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 // import { Link } from "react-router-dom";
 import UpdateCamps from "./UpdateCamps";
+import { PhotoView } from "react-photo-view";
 
 const UsersRow = ({ camp, i, handleDelete }) => {
   const { user: user1 } = useContext(AuthContext);
@@ -15,11 +16,13 @@ const UsersRow = ({ camp, i, handleDelete }) => {
       <tr className="bg-gray-100 text-xs">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">
-          <img
-            className="h-12"
-            src={camp?.image || user1?.photoURL}
-            alt={camp?.camp_name}
-          />
+          <PhotoView>
+            <img
+              className="h-12"
+              src={camp?.image || user1?.photoURL}
+              alt={camp?.camp_name}
+            />
+          </PhotoView>
         </td>
         <td className="py-2 px-4 border-b-4">{camp?.camp_name}</td>
         <td className="py-2 px-4 border-b-4">{camp?.scheduled_date_time}</td>
@@ -50,7 +53,6 @@ const UsersRow = ({ camp, i, handleDelete }) => {
           />
         </td>
         <td className="py-2 px-4 border-b-4">
-          {
             <button
               onClick={() => handleDelete(camp._id, camp)}
               className={`${
@@ -63,7 +65,6 @@ const UsersRow = ({ camp, i, handleDelete }) => {
                 <RiDeleteBin6Line />
               </span>
             </button>
-          }
         </td>
       </tr>
     </>

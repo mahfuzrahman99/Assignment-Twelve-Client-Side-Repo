@@ -10,10 +10,33 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useMemo } from "react";
 import { Bars } from "react-loader-spinner";
+import useUsers from "../../../Hooks/useUsers";
 
 const RegisteredRows = ({ participant, i, refetch }) => {
-  const axiosPublic = useAxiosPublic();
+
   const { user } = useContext(AuthContext);
+  const [users] = useUsers();
+  // const [isAdmin] = useAdmin();
+  const [isOrganizer, setOrganizer] = useState(false);
+  // const [isParticipant, setParticipant] = useState(false);
+  // const [isProfessional, setProfessional] = useState(false);
+
+  useEffect(() => {
+    const userRole = users.find((u) => u?.email === user?.email);
+    
+    if (userRole) {
+      if (userRole.role === "Organizer") {
+        setOrganizer(true);
+      } 
+      // else if (userRole.role === "Participant") {
+      //   setParticipant(true); //Professionals
+      // } else if (userRole.role === "Professionals") {
+      //   setProfessional(true);
+      // }
+    }
+  }, [user, users]);
+
+  const axiosPublic = useAxiosPublic();
   const [paid, setPaid] = useState(false);
   // Use a relevant query to fetch payment status
   const { data: payment_Intent = [], isLoading } = useQuery({
@@ -195,7 +218,7 @@ const RegisteredRows = ({ participant, i, refetch }) => {
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
             <button
-              disabled={paid}
+              disabled={paid || isOrganizer}
               className={`${
                 paid ? "text-gray-500 cursor-not-allowed" : "text-blue-500"
               }`}
@@ -228,7 +251,7 @@ const RegisteredRows = ({ participant, i, refetch }) => {
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
             <button
-              disabled={paid}
+              disabled={paid || isOrganizer}
               className={`${
                 paid ? "text-gray-500 cursor-not-allowed" : "text-blue-500"
               }`}
