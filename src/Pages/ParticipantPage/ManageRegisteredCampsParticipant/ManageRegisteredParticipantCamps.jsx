@@ -1,7 +1,8 @@
 // components/ManageRegisteredParticipantCamps.js
 
 import { useQuery } from "@tanstack/react-query";
-import RegisteredRows from "./RegisteredRows";
+import 
+RegisteredRows from "./RegisteredRows";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import SectionTitle from "../../../Components/Popular Campus/SectionTitle";
@@ -17,7 +18,7 @@ const ManageRegisteredParticipantCamps = () => {
       return res.data;
     },
   });
-  console.log("participants", participants);
+  // console.log("participants", participants);
   return (
     <div className="max-w-4xl md:mx-auto mb-24 w-[300px] md:w-auto">
       <Helmet>

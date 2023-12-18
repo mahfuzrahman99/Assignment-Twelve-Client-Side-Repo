@@ -13,21 +13,20 @@ import { Bars } from "react-loader-spinner";
 import useUsers from "../../../Hooks/useUsers";
 
 const RegisteredRows = ({ participant, i, refetch }) => {
-
   const { user } = useContext(AuthContext);
   const [users] = useUsers();
   // const [isAdmin] = useAdmin();
   const [isOrganizer, setOrganizer] = useState(false);
   // const [isParticipant, setParticipant] = useState(false);
   // const [isProfessional, setProfessional] = useState(false);
-
+  console.log(user);
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
-    
+
     if (userRole) {
       if (userRole.role === "Organizer") {
         setOrganizer(true);
-      } 
+      }
       // else if (userRole.role === "Participant") {
       //   setParticipant(true); //Professionals
       // } else if (userRole.role === "Professionals") {
@@ -35,7 +34,7 @@ const RegisteredRows = ({ participant, i, refetch }) => {
       // }
     }
   }, [user, users]);
-
+  // console.log(userRole);
   const axiosPublic = useAxiosPublic();
   const [paid, setPaid] = useState(false);
   // Use a relevant query to fetch payment status
@@ -44,7 +43,7 @@ const RegisteredRows = ({ participant, i, refetch }) => {
     queryFn: async () => {
       // const res = await axiosPublic.get(`/payments/${participant._id}`);
       const res = await axiosPublic.get(`/payments?email=${user.email}`);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });
@@ -93,7 +92,6 @@ const RegisteredRows = ({ participant, i, refetch }) => {
     () => ({ ...payment_Intent[4] }),
     [payment_Intent]
   );
-
 
   useEffect(() => {
     if (
@@ -218,9 +216,11 @@ const RegisteredRows = ({ participant, i, refetch }) => {
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
             <button
-              disabled={paid || isOrganizer}
+              // disabled={paid || isOrganizer}
               className={`${
-                paid ? "text-gray-500 cursor-not-allowed" : "text-blue-500"
+                paid || isOrganizer
+                  ? "text-gray-500 cursor-not-allowed disabled"
+                  : "text-blue-500"
               }`}
             >
               {paid ? (

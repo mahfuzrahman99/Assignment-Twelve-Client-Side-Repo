@@ -19,7 +19,7 @@ const AvailableCamp = ({ camp }) => {
     description,
     participants,
   } = camp;
-  console.log(camp);
+  console.log(participants);
   return (
     <div>
       <div className="md:grid grid-cols-2 justify-between rounded-lg shadow-lg gap-4 p-4 bg-[#6db2da] text-[#0F1E1E] md:h-[480px]">

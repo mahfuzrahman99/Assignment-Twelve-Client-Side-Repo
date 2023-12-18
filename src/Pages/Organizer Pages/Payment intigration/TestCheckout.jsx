@@ -122,8 +122,6 @@ const TestCheckout = () => {
         axiosSecure.patch(`/participants/${id}`, updatedParticipants).then((responses) => {
           if (responses.data.modifiedCount) {
             refetch();
-          } else {
-            // dtrg
           }
         });
       }
