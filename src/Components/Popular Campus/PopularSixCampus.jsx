@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-// import PopularCampOneCard from "./PopularCampOneCard";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import SectionTitle from "./SectionTitle";

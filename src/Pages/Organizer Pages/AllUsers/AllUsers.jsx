@@ -82,11 +82,11 @@ const AllUsers = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto ">
+    <div className="max-w-4xl mx-auto w-[300px] md:w-auto ">
       <div>
         <SectionTitle subHeading={"Hurry Up!"} heading={"MANAGE ALL USERS"} />
       </div>
-      <div>
+      <div className="overflow-x-auto">
         <div className="bg-white p-4 ">
           <h1 className="text-xl md:text-3xl font-bold">
             Total Users: {users.length}

@@ -221,7 +221,7 @@ const Navbar = () => {
                 >
                   <img
                     src={user?.photoURL}
-                    className="h-[50px] w-[50px] rounded-full"
+                    className="h-[35px] md:h-[50px] w-[35] md:w-[50px] rounded-full"
                     alt={user?.displayName ? user?.displayName : "Not Found"}
                   />
                 </motion.figure>
