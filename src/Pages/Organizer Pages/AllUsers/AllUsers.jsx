@@ -15,7 +15,7 @@ const AllUsers = () => {
     },
   });
 
-  const handleRemove = async (id, user) => {
+  const handleRemove = async (user) => {
     const confirmed = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to remove him!",
@@ -25,10 +25,9 @@ const AllUsers = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, remove him!",
     });
-
     if (confirmed.isConfirmed) {
       try {
-        const res = await axiosSecure.delete(`/users/${id}`);
+        const res = await axiosSecure.delete(`/users/${user._id}`);
         if (res.data.deletedCount > 0) {
           refetch();
           Swal.fire({
@@ -48,33 +47,33 @@ const AllUsers = () => {
     }
   };
 
-  const handleMakeAdmin = async (id, user) => {
+  const handleUpdateUserRole = async (user) => {
     const confirmed = await Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to admin him!",
+      text: "You won't be able to update his/shes role!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, make admin him!",
+      confirmButtonText: "Yes, update his/shes role!",
     });
 
     if (confirmed.isConfirmed) {
       try {
-        const res = await axiosSecure.patch(`/users/admin/${id}`);
+        const res = await axiosSecure.patch(`/users/${user._id}`);
         if (res.data.modifiedCount > 0) {
           refetch();
           Swal.fire({
             title: "maked!",
-            text: `${user?.name} has been make admin.`,
+            text: `${user?.name} has been maked ${user.role}.`,
             icon: "success",
           });
         }
       } catch (error) {
-        console.error("Error making admin", error);
+        console.error("Error updating his/shes role", error);
         Swal.fire({
           title: "Error",
-          text: "An error occurred while making admin.",
+          text: "An error occurred while updating his/shes role.",
           icon: "error",
         });
       }
@@ -100,7 +99,7 @@ const AllUsers = () => {
                   <th className="py-2 px-4 border-b">NAME</th>
                   <th className="py-2 px-4 border-b">EMAIL</th>
                   <th className="py-2 px-4 border-b">ROLE</th>
-                  {/* <th className="py-2 px-4 border-b">EDIT</th> */}
+                  <th className="py-2 px-4 border-b">EDIT</th>
                   <th className="py-2 px-4 border-b">REMOVE</th>
                 </tr>
               </thead>
@@ -109,7 +108,7 @@ const AllUsers = () => {
                   <UsersRow
                     key={user._id}
                     handleRemove={handleRemove}
-                    handleMakeAdmin={handleMakeAdmin}
+                    handleUpdateUserRole={handleUpdateUserRole}
                     user={user}
                     i={i}
                   />

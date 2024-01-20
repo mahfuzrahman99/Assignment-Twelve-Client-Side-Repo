@@ -1,4 +1,3 @@
-// components/ManageRegisteredParticipantCamps.js
 
 import { useQuery } from "@tanstack/react-query";
 import 
@@ -10,15 +9,18 @@ import SectionTitle from "../../../Components/Popular Campus/SectionTitle";
 const ManageRegisteredParticipantCamps = () => {
   const axiosPublic = useAxiosPublic();
 
-  // Fetch participants using React Query
-  const { data: participants = [], refetch } = useQuery({
+  const { data = {}, refetch, isLoading } = useQuery({
     queryKey: "participants",
     queryFn: async () => {
-      const res = await axiosPublic.get("/participants");
-      return res.data;
+      const {data: participants} = await axiosPublic.get("/participants");
+      return {participants,};
     },
   });
-  // console.log("participants", participants);
+console.log(data.participants);
+  if(isLoading){
+    return
+  }
+   
   return (
     <div className="max-w-4xl md:mx-auto mb-24 w-[300px] md:w-auto">
       <Helmet>
@@ -28,7 +30,7 @@ const ManageRegisteredParticipantCamps = () => {
       <div className="">
         <div className="bg-white p-4 overflow-x-auto">
           <h1 className="text-xl md:text-3xl font-bold">
-            Total Payment: {participants.length}
+            Total Payment: {data?.participants?.length}
           </h1>
           <div>
             <table className="min-w-full bg-white">
@@ -45,10 +47,11 @@ const ManageRegisteredParticipantCamps = () => {
                 </tr>
               </thead>
               <tbody>
-                {participants?.map((participant, i) => (
+                {data?.participants?.map((participant, i) => (
                   <RegisteredRows
                     key={participant._id}
                     participant={participant}
+                    isLoading={isLoading}
                     i={i}
                     refetch={refetch}
                   />

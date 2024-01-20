@@ -1,169 +1,18 @@
 /* eslint-disable react/prop-types */
-// components/RegisteredRows.js
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-import { useContext } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useMemo } from "react";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import useUsers from "../../../Hooks/useUsers";
 import { Bars } from "react-loader-spinner";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
-const ManageRegisteredRow = ({ participant, i, refetch }) => {
+const ManageRegisteredRow = ({ participant, i, refetch, isLoading }) => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-  const { user } = useContext(AuthContext);
-  const [users] = useUsers();
-  // const [isAdmin] = useAdmin();
-  const [isOrganizer, setOrganizer] = useState(false);
-  // const [isParticipant, setParticipant] = useState(false);
-  // const [isProfessional, setProfessional] = useState(false);
-  console.log(isOrganizer);
-  useEffect(() => {
-    const userRole = users.find((u) => u?.email === user?.email);
 
-    if (userRole) {
-      if (userRole.role === "Organizer") {
-        setOrganizer(true);
-      }
-    }
-  }, [user, users]);
-
-  const [paid, setPaid] = useState(false);
-  // Use a relevant query to fetch payment status
-  const { data: payment_Intent = [], isLoading } = useQuery({
-    queryKey: "payment_intent",
-    queryFn: async () => {
-      // const res = await axiosPublic.get(`/payments/${participant._id}`);
-      const res = await axiosPublic.get(`/payments`);
-      // console.log(res.data);
-      return res.data;
-    },
-  });
-  console.log(payment_Intent);
-  const paymentObject = useMemo(
-    () => ({ ...payment_Intent[0] }),
-    [payment_Intent]
-  );
-  const paymentObject1 = useMemo(
-    () => ({ ...payment_Intent[1] }),
-    [payment_Intent]
-  );
-  const paymentObject2 = useMemo(
-    () => ({ ...payment_Intent[2] }),
-    [payment_Intent]
-  );
-  const paymentObject3 = useMemo(
-    () => ({ ...payment_Intent[3] }),
-    [payment_Intent]
-  );
-  const paymentObject4 = useMemo(
-    () => ({ ...payment_Intent[4] }),
-    [payment_Intent]
-  );
-  const paymentObject5 = useMemo(
-    () => ({ ...payment_Intent[5] }),
-    [payment_Intent]
-  );
-  const paymentObject6 = useMemo(
-    () => ({ ...payment_Intent[6] }),
-    [payment_Intent]
-  );
-  const paymentObject7 = useMemo(
-    () => ({ ...payment_Intent[7] }),
-    [payment_Intent]
-  );
-  const paymentObject8 = useMemo(
-    () => ({ ...payment_Intent[8] }),
-    [payment_Intent]
-  );
-  const paymentObject9 = useMemo(
-    () => ({ ...payment_Intent[9] }),
-    [payment_Intent]
-  );
-  const paymentObject10 = useMemo(
-    () => ({ ...payment_Intent[10] }),
-    [payment_Intent]
-  );
-
-  useEffect(() => {
-    if (
-      paymentObject.paymentStatus === "paid" &&
-      paymentObject.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject1.paymentStatus === "paid" &&
-      paymentObject1.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject2.paymentStatus === "paid" &&
-      paymentObject2.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject3.paymentStatus === "paid" &&
-      paymentObject3.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject4.paymentStatus === "paid" &&
-      paymentObject4.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject5.paymentStatus === "paid" &&
-      paymentObject5.campId === participant.campId
-    ) {
-      setPaid(true);
-    }
-    if (
-      paymentObject6.paymentStatus === "paid" &&
-      paymentObject6.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject7.paymentStatus === "paid" &&
-      paymentObject7.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject8.paymentStatus === "paid" &&
-      paymentObject8.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject9.paymentStatus === "paid" &&
-      paymentObject9.campId === participant.campId
-    ) {
-      setPaid(true);
-    } else if (
-      paymentObject10.paymentStatus === "paid" &&
-      paymentObject10.campId === participant.campId
-    ) {
-      setPaid(true);
-    }
-  }, [
-    paymentObject,
-    paymentObject1,
-    paymentObject2,
-    paymentObject3,
-    paymentObject4,
-    paymentObject5,
-    paymentObject6,
-    paymentObject7,
-    paymentObject8,
-    paymentObject9,
-    paymentObject10,
-    refetch,
-    paymentObject.campId,
-    participant.campId,
-  ]);
+  let paid = undefined;
+  if( participant.paymentStatus === "paid" ){
+    paid = true
+  }
 
   const handleCancel = async () => {
     const confirmed = await Swal.fire({
@@ -200,23 +49,12 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
     }
   };
 
-  console.log(participant);
-
-  // const {confirmationStatus}= participant;
   const handleConfirmedPayment = (id) => {
     const updateInfo = {
       confirmationStatus: "confirmed",
+      transactionId: participant.transactionId
     };
 
-    axiosSecure.patch(`/payments/${id}`, updateInfo).then((responses) => {
-      console.log(responses.data);
-      if (responses.data.modifiedCount) {
-        refetch()
-      }
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
     axiosSecure.patch(`/participants/${id}`, updateInfo).then((responses) => {
       console.log(responses.data);
       if (responses.data.modifiedCount) {

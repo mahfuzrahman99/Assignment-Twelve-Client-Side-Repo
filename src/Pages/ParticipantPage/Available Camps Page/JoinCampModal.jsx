@@ -84,10 +84,10 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
       confirmationStatus: "pending",
     };
     axiosSecure.post(`/participants`, menuItems).then((responses) => {
-      if (responses.data.modifiedCount) {
+      if (responses.data.modifiedCount){
         // a
       } else {
-        // dtrg
+        // d
       }
     });
 
@@ -98,13 +98,13 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
         // dtrg
       }
     });
-    axiosSecure.patch(`/campus/${_id}`, menuItems).then((responses) => {
-      if (responses.data.modifiedCount) {
-        // a
-      } else {
-        // dtrg
-      }
-    });
+    // axiosSecure.patch(`/campus/${_id}`, menuItems).then((responses) => {
+    //   if (responses.data.modifiedCount) {
+    //     // a
+    //   } else {
+    //     // dtrg
+    //   }
+    // });
   };
 
   return (

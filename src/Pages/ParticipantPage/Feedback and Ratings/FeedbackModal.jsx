@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -72,6 +72,16 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
       });
   };
 
+  const [message, setMessage] = useState("");
+
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+
+    if (message.length > 140) {
+      alert("Message length must be less than or equal to 145 characters.");
+    }
+  }
+
   return (
     <div>
       {showModal && (
@@ -144,6 +154,7 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
                     type="text"
                     className="w-full mb-2 p-3 rounded-md"
                     name="message"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="flex ">

@@ -28,6 +28,7 @@ const TestCheckout = () => {
     },
   });
   const {
+    _id,
     camp_name,
     camp_fees,
     confirmationStatus,
@@ -50,9 +51,7 @@ const TestCheckout = () => {
 
   const handlePayment = async (e) => {
     e.preventDefault();
-
     
-
     if (!stripe || !elements) {
       return;
     }
@@ -99,9 +98,10 @@ const TestCheckout = () => {
           camp_name,
           camp_fees,
           confirmationStatus,
-          paymentStatus,
+          paymentStatus: "paid",
           venue,
           campId,
+          participantId:_id,
         };
 
         const res = await axiosSecure.post("/payments", payment);
@@ -117,16 +117,6 @@ const TestCheckout = () => {
           });
           navigate("/participant/payment_history");
         }
-        // const updatedParticipants = {
-        //   paymentStatus: "paid",
-        //   confirmationStatus: "confirmed"
-        // };
-        // axiosSecure.patch(`/participants/${id}`, updatedParticipants).then((responses) => {
-        //   if (responses.data.modifiedCount) {
-        //     refetch();
-        //   }
-        // });
-        
       }
     }
   };

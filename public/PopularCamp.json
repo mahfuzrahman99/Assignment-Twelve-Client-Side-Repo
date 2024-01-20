@@ -84,7 +84,10 @@
     "specialized_service": "Migraine assessment",
     "healthcare_professional": "Neurologists",
     "target_audience": "Individuals suffering from migraines",
-    "description": "The Migraine Management Camp at the Neurology Center, Khulna, is tailored for individuals suffering from migraines. Offering migraine assessments, treatment consultations, and migraine management education, this camp brings together neurologists, physiotherapists, and migraine specialists. Join us to better understand and manage migraines for improved quality of life."
+    "description": "The Migraine Management Camp at the Neurology Center, Khulna, is tailored for individuals suffering from migraines. Offering migraine assessments, treatment consultations, and migraine management education, this camp brings together neurologists, physiotherapists, and migraine specialists. Join us to better understand and manage migraines for improved quality of life.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 7,
@@ -96,7 +99,10 @@
     "specialized_service": "Dental check-ups",
     "healthcare_professional": "Dentists",
     "target_audience": "All age groups",
-    "description": "Embrace a healthier smile at the Dental Care Camp, hosted at Dental Care Clinic, Dhaka. This camp focuses on comprehensive dental care, offering dental check-ups, oral hygiene education, and personalized dental care consultations. Expert dentists, dental hygienists, and oral care specialists will guide you in maintaining optimal oral health. Open to individuals of all ages, this camp is your gateway to a confident and vibrant smile. Join us for a day dedicated to dental wellness and personalized care"
+    "description": "Embrace a healthier smile at the Dental Care Camp, hosted at Dental Care Clinic, Dhaka. This camp focuses on comprehensive dental care, offering dental check-ups, oral hygiene education, and personalized dental care consultations. Expert dentists, dental hygienists, and oral care specialists will guide you in maintaining optimal oral health. Open to individuals of all ages, this camp is your gateway to a confident and vibrant smile. Join us for a day dedicated to dental wellness and personalized care",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 8,
@@ -108,7 +114,10 @@
     "specialized_service": "Cardiac screenings",
     "healthcare_professional": "Cardiologists",
     "target_audience": "Adults concerned about heart health",
-    "description": "Join us at the Heart Health Symposium for a day dedicated to cardiovascular well-being. Expert cardiologists will conduct screenings, provide nutritional counseling, and offer insights into maintaining a healthy heart. Discover the keys to a heart-healthy lifestyle and take proactive steps toward cardiovascular wellness."
+    "description": "Join us at the Heart Health Symposium for a day dedicated to cardiovascular well-being. Expert cardiologists will conduct screenings, provide nutritional counseling, and offer insights into maintaining a healthy heart. Discover the keys to a heart-healthy lifestyle and take proactive steps toward cardiovascular wellness.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 9,
@@ -120,7 +129,10 @@
     "specialized_service": "Women's health screenings",
     "healthcare_professional": "Gynecologists",
     "target_audience": "Women of all ages",
-    "description": "The Women's Wellness Expo is a celebration of women's health, offering screenings, gynecological consultations, and empowering wellness seminars. Connect with leading healthcare professionals specializing in women's health to prioritize your well-being. A day designed for women of all ages to invest in their health and vitality."
+    "description": "The Women's Wellness Expo is a celebration of women's health, offering screenings, gynecological consultations, and empowering wellness seminars. Connect with leading healthcare professionals specializing in women's health to prioritize your well-being. A day designed for women of all ages to invest in their health and vitality.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 10,
@@ -132,7 +144,10 @@
     "specialized_service": "Childhood vaccinations",
     "healthcare_professional": "Pediatricians",
     "target_audience": "Parents with young children",
-    "description": "Ensure the health and safety of your little ones at the Pediatric Immunization Drive. This event provides free childhood vaccinations, pediatric health education, and essential child safety tips. Partner with pediatricians and nurses to safeguard your child's health through immunization and education."
+    "description": "Ensure the health and safety of your little ones at the Pediatric Immunization Drive. This event provides free childhood vaccinations, pediatric health education, and essential child safety tips. Partner with pediatricians and nurses to safeguard your child's health through immunization and education.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 11,
@@ -144,7 +159,10 @@
     "specialized_service": "Geriatric health screenings",
     "healthcare_professional": "Geriatricians",
     "target_audience": "Seniors and their caregivers",
-    "description": " Seniors and their caregivers are invited to the Senior Health Expo, an event tailored to geriatric well-being. Benefit from geriatric health screenings, memory tests, and engaging fitness sessions. Connect with specialists who understand the unique health needs of seniors and explore ways to enhance your golden years."
+    "description": " Seniors and their caregivers are invited to the Senior Health Expo, an event tailored to geriatric well-being. Benefit from geriatric health screenings, memory tests, and engaging fitness sessions. Connect with specialists who understand the unique health needs of seniors and explore ways to enhance your golden years.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 12,
@@ -156,7 +174,10 @@
     "specialized_service": "Eye examinations",
     "healthcare_professional": "Optometrists",
     "target_audience": "Individuals of all ages",
-    "description": "Join us at the Vision Care Clinic for a day dedicated to eye health. Receive comprehensive eye examinations, obtain prescription eyewear, and participate in enlightening eye health seminars. Whether you're young or old, prioritize your vision with the expertise of optometrists, ophthalmologists, and optical technicians."
+    "description": "Join us at the Vision Care Clinic for a day dedicated to eye health. Receive comprehensive eye examinations, obtain prescription eyewear, and participate in enlightening eye health seminars. Whether you're young or old, prioritize your vision with the expertise of optometrists, ophthalmologists, and optical technicians.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 13,
@@ -168,7 +189,10 @@
     "specialized_service": "Nutritional assessments",
     "healthcare_professional": "Nutritionists",
     "target_audience": "Fitness enthusiasts and health-conscious individuals",
-    "description": "The Nutrition and Fitness Expo is a haven for fitness enthusiasts and health-conscious individuals. Engage in nutritional assessments, fitness challenges, and healthy cooking demonstrations. Nutritionists, fitness trainers, and dietitians will guide you on a journey to optimal health and wellness."
+    "description": "The Nutrition and Fitness Expo is a haven for fitness enthusiasts and health-conscious individuals. Engage in nutritional assessments, fitness challenges, and healthy cooking demonstrations. Nutritionists, fitness trainers, and dietitians will guide you on a journey to optimal health and wellness.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 14,
@@ -180,7 +204,10 @@
     "specialized_service": "Cancer screenings",
     "healthcare_professional": "Oncologists",
     "target_audience": "Cancer patients, survivors, and their families",
-    "description": "Unite against cancer at the Cancer Awareness Symposium. Benefit from cancer screenings, oncology consultations, and supportive group sessions. Connect with oncologists, cancer care specialists, and psychologists to empower yourself in the fight against cancer. A day dedicated to awareness, support, and hope."
+    "description": "Unite against cancer at the Cancer Awareness Symposium. Benefit from cancer screenings, oncology consultations, and supportive group sessions. Connect with oncologists, cancer care specialists, and psychologists to empower yourself in the fight against cancer. A day dedicated to awareness, support, and hope.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 15,
@@ -192,7 +219,10 @@
     "specialized_service": "Dental check-ups",
     "healthcare_professional": "Dentists",
     "target_audience": "All age groups",
-    "description": " Smile with confidence after attending Dental Health Day. Receive dental check-ups, oral hygiene education, and personalized dental care consultations. Dentists, dental hygienists, and oral care specialists are ready to guide you toward optimal oral health. A day for all age groups to prioritize their smiles."
+    "description": " Smile with confidence after attending Dental Health Day. Receive dental check-ups, oral hygiene education, and personalized dental care consultations. Dentists, dental hygienists, and oral care specialists are ready to guide you toward optimal oral health. A day for all age groups to prioritize their smiles.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 16,
@@ -204,7 +234,10 @@
     "specialized_service": "Mental health screenings",
     "healthcare_professional": "Psychiatrists",
     "target_audience": "Individuals interested in mental health",
-    "description": "Take a step toward mental well-being at the Mental Health Awareness Workshop. Participate in mental health screenings, therapy consultations, and mindfulness sessions. Psychiatrists, therapists, and mindfulness experts will provide valuable insights and tools for maintaining mental health."
+    "description": "Take a step toward mental well-being at the Mental Health Awareness Workshop. Participate in mental health screenings, therapy consultations, and mindfulness sessions. Psychiatrists, therapists, and mindfulness experts will provide valuable insights and tools for maintaining mental health.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 17,
@@ -216,7 +249,10 @@
     "specialized_service": "Allergy testing",
     "healthcare_professional": "Allergists",
     "target_audience": "Individuals with allergies and asthma",
-    "description": "Breathe easy with the Allergy and Asthma Clinic, offering allergy testing, asthma management, and allergen avoidance tips. Allergists, respiratory therapists, and allergy specialists will guide you in understanding and managing allergies and asthma. A day dedicated to respiratory well-being for individuals with these conditions."
+    "description": "Breathe easy with the Allergy and Asthma Clinic, offering allergy testing, asthma management, and allergen avoidance tips. Allergists, respiratory therapists, and allergy specialists will guide you in understanding and managing allergies and asthma. A day dedicated to respiratory well-being for individuals with these conditions.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 18,
@@ -228,7 +264,10 @@
     "specialized_service": "Blood donation",
     "healthcare_professional": "Phlebotomists",
     "target_audience": "Community members willing to donate blood",
-    "description": "Make a life-saving impact at the Community Blood Drive. Join us for blood donation, blood pressure checks, and access to health and wellness resources. Phlebotomists, nurses, and health educators are ready to support a community-wide effort to ensure a stable and healthy blood supply. Your donation can save lives!"
+    "description": "Make a life-saving impact at the Community Blood Drive. Join us for blood donation, blood pressure checks, and access to health and wellness resources. Phlebotomists, nurses, and health educators are ready to support a community-wide effort to ensure a stable and healthy blood supply. Your donation can save lives!",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   },
   {
     "id": 19,
@@ -255,6 +294,9 @@
     "specialized_service": "Migraine assessment",
     "healthcare_professional": "Neurologists",
     "target_audience": "Individuals suffering from migraines",
-    "description": "The Migraine Management Camp at the Neurology Center, Khulna, is tailored for individuals suffering from migraines. Offering migraine assessments, treatment consultations, and migraine management education, this camp brings together neurologists, physiotherapists, and migraine specialists. Join us to better understand and manage migraines for improved quality of life."
+    "description": "The Migraine Management Camp at the Neurology Center, Khulna, is tailored for individuals suffering from migraines. Offering migraine assessments, treatment consultations, and migraine management education, this camp brings together neurologists, physiotherapists, and migraine specialists. Join us to better understand and manage migraines for improved quality of life.",
+    "participants": 0,
+    "paymentStatus": "unpaid",
+    "confirmationStatus": "pending"
   }
 ]

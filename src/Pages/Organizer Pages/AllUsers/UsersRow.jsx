@@ -1,18 +1,13 @@
 /* eslint-disable react/prop-types */
-// import { FaUsers } from "react-icons/fa";
-// import { MdSecurityUpdateGood } from "react-icons/md";
+import { MdSecurityUpdateGood } from "react-icons/md";
 import { IoPersonRemoveOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import useAdmin from "../../../Hooks/useAdmin";
 import { PhotoView } from "react-photo-view";
-import useUsers from "../../../Hooks/useUsers";
 
-const UsersRow = ({ user, i, handleRemove, }) => {
+const UsersRow = ({ user, i, handleRemove, handleUpdateUserRole }) => {
   const { user: user1 } = useContext(AuthContext);
-  const [isAdmin] = useAdmin();
-  const [users] = useUsers();
-
+  // console.log(user.role);
   return (
     <>
       <tr className="bg-gray-100">
@@ -29,39 +24,21 @@ const UsersRow = ({ user, i, handleRemove, }) => {
         <td className="py-2 px-4 border-b-4">{user.name}</td>
         <td className="py-2 px-4 border-b-4">{user.email}</td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
-        {users.rol}
-          {/* {user.role === "admin" ? (
-            <p className="text-xl font-semibold text-[#47b2f1]">Admin</p>
-          ) : (
-            <span
-              onClick={() => handleMakeAdmin(user._id, user)}
-              className="flex justify-center m-1 p-1  rounded bg-[#47b2f1]"
-            >
-              <FaUsers />
-            </span>
-          )} */}
+          <p className="text-lg">{user.role}</p>
         </td>
-        {/* <td className="py-2 px-4 border-b-4">
-          {user.role === "admin" ? (
-            <p className="text-xl font-semibold text-[#D1A054]">Admin</p>
-          ) : (
-            <button
-              onClick={() => handleMakeAdmin(user._id, user)}
-              className="bg-blue-500 text-white px-2 py-1 rounded"
-            >
-              <MdSecurityUpdateGood />
-            </button>
-          )}
-        </td> */}
+        <td className="py-2 px-4 border-b-4">
+          <button
+            onClick={() => handleUpdateUserRole(user._id, user)}
+            className="bg-[#47b2f1] text-3xl text-white p-2 rounded"
+          >
+            <MdSecurityUpdateGood />
+          </button>
+        </td>
         <td className="py-2 px-4 border-b-4">
           {
             <button
               onClick={() => handleRemove(user._id, user)}
-              className={`${
-                isAdmin
-                  ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
-                  : "bg-red-500 text-white px-2 py-1 rounded ml-2"
-              }`}
+              className="bg-red-500 text-white text-3xl p-2 rounded ml-2"
             >
               <IoPersonRemoveOutline />
             </button>

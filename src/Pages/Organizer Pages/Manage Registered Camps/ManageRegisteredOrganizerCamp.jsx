@@ -1,4 +1,3 @@
-// components/ManageRegisteredParticipantCamps.js
 
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
@@ -9,14 +8,17 @@ import ManageRegisteredRow from "./ManageRegisteredRow";
 const ManageRegisteredOrganizerCamp = () => {
   const axiosPublic = useAxiosPublic();
 
-  // Fetch participants using React Query
-  const { data: participants = [], refetch } = useQuery({
+  const { data: participants = [], refetch, isLoading } = useQuery({
     queryKey: "participants",
     queryFn: async () => {
       const res = await axiosPublic.get("/participants");
       return res.data;
     },
   });
+
+  if(isLoading){
+    return
+  }
 
   return (
     <div className="max-w-4xl mx-auto mb-24 w-[300px]  md:w-auto">
@@ -47,6 +49,7 @@ const ManageRegisteredOrganizerCamp = () => {
                 {participants?.map((participant, i) => (
                   <ManageRegisteredRow
                     key={participant._id}
+                    isLoading={isLoading}
                     participant={participant}
                     i={i}
                     refetch={refetch}

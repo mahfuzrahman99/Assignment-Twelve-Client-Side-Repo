@@ -18,12 +18,12 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
   const handlePublish = async (id, camp) => {
     const confirmed = await Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to delete this!",
+      text: "You won't be able to publish this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete this!",
+      confirmButtonText: "Yes, publish this!",
     });
 
     if (confirmed.isConfirmed) {
@@ -35,36 +35,36 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
       } catch (error) {
         console.error("Error deleting camp:", error);
       }
+      const menuItem = {
+        camp_name: camp.camp_name,
+        camp_fees: camp.camp_fees,
+        scheduled_date_time: camp.scheduled_date_time,
+        venue: camp.venue,
+        specialized_service: camp.specialized_service,
+        healthcare_professional: camp.healthcare_professional,
+        target_audience: camp.target_audience,
+        description: camp.description,
+        image: camp.image,
+        participants: 0,
+        paymentStatus: "unpaid",
+        confirmationStatus: "pending",
+      };
+      console.log(menuItem);
+      const campRes = await axiosSecure.post("/campus", menuItem);
+      console.log(campRes.data);
+      if (campRes.data.insertedId) {
+        // show success popup
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${camp.camp_name} is added to the Camps list`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     }
 
-    const menuItem = {
-      camp_name: camp.camp_name,
-      camp_fees: camp.camp_fees,
-      scheduled_date_time: camp.scheduled_date_time,
-      venue: camp.venue,
-      specialized_service: camp.specialized_service,
-      healthcare_professional: camp.healthcare_professional,
-      target_audience: camp.target_audience,
-      description: camp.description,
-      image: camp.image,
-      participants: 0,
-      paymentStatus: "unpaid",
-      confirmationStatus: "pending",
-    };
-    console.log(menuItem);
-    const campRes = await axiosSecure.post("/campus", menuItem);
-    console.log(campRes.data);
-    if (campRes.data.insertedId) {
-      // show success popup
-      refetch();
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `${camp.camp_name} is added to the Camps list`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
   };
 
   return (

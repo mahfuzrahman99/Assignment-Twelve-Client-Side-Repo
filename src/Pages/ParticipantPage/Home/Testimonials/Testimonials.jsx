@@ -40,7 +40,7 @@ const Testimonials = () => {
       >
         {feedbackPost.map((feedback) => (
           <SwiperSlide key={feedback._id}>
-            <div className="md:grid grid-cols-2 gap-3 items-center  md:my-16 md:w-1/2 mx-auto">
+            <div className="md:grid grid-cols-2 gap-3 items-center shadow-lg p-2 rounded-lg shadow-[#8b9097] md:my-16 md:w-1/2 mx-auto">
               <div className="col-span-1">
                 <PhotoView src={feedback.image}>
                   <img
@@ -56,7 +56,7 @@ const Testimonials = () => {
                 </h3>
                 <h3 className="text-xl font-medium ">{feedback.camp_name}</h3>
                 <h3 className="text-2xl ">{feedback.date}</h3>
-                <p className="py-3">{feedback.details}</p>
+                <p className="py-3">{feedback.message?.slice(0, 140)}</p>
                 <div className="flex justify-center">
                   <Rating
                     style={{ maxWidth: 180 }}
