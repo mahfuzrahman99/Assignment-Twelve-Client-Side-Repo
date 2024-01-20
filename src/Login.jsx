@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
@@ -23,25 +24,27 @@ const Login = () => {
   const captchaRef = useRef(null);
   const navigate = useNavigate();
   const [users] = useUsers();
-  // const [isOrganizer] = useOrganizer()
-  const [isOrganizer, setOrganizer] = useState(false);
-  const [isParticipant, setParticipant] = useState(false);
-  const [isProfessional, setProfessional] = useState(false);
+  // const [isOrganizer, setOrganizer] = useState(false);
+  // const [isParticipant, setParticipant] = useState(false);
+  // const [isProfessional, setProfessional] = useState(false);
 
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
-    console.log(userRole?.role);
+    console.log(userRole, users);
     //Organizer
     if (userRole) {
       if (userRole.role === "Organizer") {
-        setOrganizer(true); //Participant
+        // setOrganizer(true); //Participant
+        navigate("/organizer/organizer_profile");
       } else if (userRole.role === "Participant") {
-        setParticipant(true); //Professionals
+        // setParticipant(true); //Professionals
+        navigate("/participant/participant_profile");
       } else if (userRole.role === "Professionals") {
-        setProfessional(true);
+        // setProfessional(true);
+        navigate("/professional/professional_profile");
       }
     }
-  }, [user, users]);
+  }, [user,users]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -50,9 +53,11 @@ const Login = () => {
     const password = e.target.password.value;
 
     if (!disabled) {
+      console.log("disable scope");
       signInUser(email, password)
         .then(() => {
           const user = { email };
+          console.log("after signin");
           axios
             .post(
               "https://assignment-twelve-server-side-xi.vercel.app/jwt",
@@ -60,21 +65,14 @@ const Login = () => {
               { withCredentials: true }
             )
             .then((res) => {
+              console.log("after created token");
               if (res.data) {
-                if (isOrganizer) {
-                  swal("Success!", "Login Successfully!", "success");
-                  navigate("/organizer/organizer_profile");
-                } else if (isParticipant) {
-                  swal("Success!", "Login Successfully!", "success");
-                  navigate("/participant/participant_profile");
-                } else if (isProfessional) {
-                  swal("Success!", "Login Successfully!", "success");
-                  navigate("/professional/professional_profile");
-                }
+                swal("Success!", "Login Successfully!", "success");
               }
             });
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error);
           swal("Error!", "Please check your email and password!", "error");
         });
     } else {

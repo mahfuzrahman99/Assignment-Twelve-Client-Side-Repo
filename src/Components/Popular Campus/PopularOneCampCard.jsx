@@ -26,7 +26,7 @@ const PopularOneCampCard = ({ camp }) => {
   // console.log(campData.participants);
   return (
     <div>
-      <div className="md:grid grid-cols-2 flex flex-col justify-between mx-2 md:mx-auto bg-[#6db2da] p-4 rounded-lg text-[#0F1E1E] md:h-[530px]">
+      <div className="md:grid grid-cols-2 flex flex-col justify-between mx-2 md:mx-auto bg-white shadow-lg p-4 rounded-lg text-[#0F1E1E] md:h-[530px]">
         <div className="col-span-2">
           <PhotoView src={image}>
             <img className="h-[250px] w-full rounded-lg" src={image} alt="" />

@@ -12,6 +12,7 @@ const ProfessionalProfileDesign = ({ user }) => {
     address,
     nationality,
     dateOfBirth,
+    role,
     background,
     educationStatus,
     training,
@@ -32,6 +33,10 @@ const ProfessionalProfileDesign = ({ user }) => {
             <p>
               <span className="text-lg font-bold">Phone: </span>
               {phoneNumber}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Role: </span>
+              {role}
             </p>
             <p>
               <span className="text-lg font-bold">Address: </span>

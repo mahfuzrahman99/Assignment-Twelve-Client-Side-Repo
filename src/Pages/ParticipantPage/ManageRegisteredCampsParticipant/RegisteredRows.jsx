@@ -15,11 +15,7 @@ import useUsers from "../../../Hooks/useUsers";
 const RegisteredRows = ({ participant, i, refetch }) => {
   const { user } = useContext(AuthContext);
   const [users] = useUsers();
-  // const [isAdmin] = useAdmin();
   const [isOrganizer, setOrganizer] = useState(false);
-  // const [isParticipant, setParticipant] = useState(false);
-  // const [isProfessional, setProfessional] = useState(false);
-  console.log(user);
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
 
@@ -27,26 +23,26 @@ const RegisteredRows = ({ participant, i, refetch }) => {
       if (userRole.role === "Organizer") {
         setOrganizer(true);
       }
-      // else if (userRole.role === "Participant") {
-      //   setParticipant(true); //Professionals
-      // } else if (userRole.role === "Professionals") {
-      //   setProfessional(true);
-      // }
     }
   }, [user, users]);
-  // console.log(userRole);
+  
   const axiosPublic = useAxiosPublic();
   const [paid, setPaid] = useState(false);
   // Use a relevant query to fetch payment status
   const { data: payment_Intent = [], isLoading } = useQuery({
     queryKey: "payment_intent",
     queryFn: async () => {
-      // const res = await axiosPublic.get(`/payments/${participant._id}`);
       const res = await axiosPublic.get(`/payments?email=${user.email}`);
-      // console.log(res.data);
       return res.data;
     },
   });
+
+  // for(let i = 0; i < payment_Intent.length; i++){
+  //   const paymentObject = useMemo(
+  //     () => ({ ...payment_Intent[0] }),
+  //     [payment_Intent]
+  //   );
+  // }
 
   const paymentObject = useMemo(
     () => ({ ...payment_Intent[0] }),
@@ -73,23 +69,23 @@ const RegisteredRows = ({ participant, i, refetch }) => {
     [payment_Intent]
   );
   const paymentObject6 = useMemo(
-    () => ({ ...payment_Intent[0] }),
+    () => ({ ...payment_Intent[6] }),
     [payment_Intent]
   );
   const paymentObject7 = useMemo(
-    () => ({ ...payment_Intent[1] }),
+    () => ({ ...payment_Intent[7] }),
     [payment_Intent]
   );
   const paymentObject8 = useMemo(
-    () => ({ ...payment_Intent[2] }),
+    () => ({ ...payment_Intent[8] }),
     [payment_Intent]
   );
   const paymentObject9 = useMemo(
-    () => ({ ...payment_Intent[3] }),
+    () => ({ ...payment_Intent[9] }),
     [payment_Intent]
   );
   const paymentObject10 = useMemo(
-    () => ({ ...payment_Intent[4] }),
+    () => ({ ...payment_Intent[10] }),
     [payment_Intent]
   );
 
@@ -250,14 +246,15 @@ const RegisteredRows = ({ participant, i, refetch }) => {
         </td>
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
-            <button
-              disabled={paid || isOrganizer}
-              className={`${
-                paid ? "text-gray-500 cursor-not-allowed" : "text-blue-500"
-              }`}
-            >
-              {paid ? "Confirmed" : "Pending"}
-            </button>
+            <p>
+              {participant.confirmationStatus === "pending" ? (
+                <p>Pending</p>
+              ) : participant.confirmationStatus === "confirmed" ? (
+                <p>Confirmed</p>
+              ) : (
+                ""
+              )}
+            </p>
           ) : (
             <p>
               <Bars

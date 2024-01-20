@@ -18,7 +18,7 @@ import "swiper/css/pagination";
 
 const Banner = () => {
   return (
-    <div className="w-full h-[40vh] md:h-[500px] mb-5 md:mb-16 z-0">
+    <div className="w-full h-[40vh] md:h-[500px] mb-5 md:mb-16 z-0" >
       <Swiper
         spaceBetween={0}
         loop={true}

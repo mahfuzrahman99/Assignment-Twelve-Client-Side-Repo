@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 
@@ -33,27 +34,23 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: picture,
-      userRole:role,
+      userRole: role,
     });
   };
   console.log(user);
   const createUser = (email, password) => {
-    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInUser = (email, password) => {
-    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithGoogle = () => {
-    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const signInWithGithub = () => {
-    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -66,20 +63,20 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
       setUser(currentUser);
-
+      setLoading(false);
       // JWT post using local storage
       if (currentUser) {
         // get token and store client
-        axiosPublic.post("/jwt", loggedUser,{withCredentials: true,}).then((res) => {
-          console.log(res.data.token);
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
-          }
-        });
+        axiosPublic
+          .post("/jwt", loggedUser, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data.token);
+            if (res.data.token) {
+              localStorage.setItem("access-token", res.data.token);
+            }
+          });
       } else {
         localStorage.removeItem("access-token");
-        setLoading(false);
       }
 
       // JWT post using cookies
@@ -106,13 +103,13 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unSubscribe();
     };
-  }, [user, axiosPublic]);
+  }, []);
 
-  useEffect(() => {
-    if (user?.email) {
-      setLoading(false);
-    }
-  }, [user?.email]);
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     setLoading(false);
+  //   }
+  // }, [user?.email]);
 
   const authInfo = {
     user,

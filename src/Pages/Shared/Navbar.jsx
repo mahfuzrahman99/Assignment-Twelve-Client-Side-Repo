@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink, Navigate } from "react-router-dom";
+import { Link, NavLink, Navigate,  } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "react-photo-view/dist/react-photo-view.css";
@@ -15,6 +15,9 @@ const Navbar = () => {
   const [isOrganizer, setOrganizer] = useState(false);
   const [isParticipant, setParticipant] = useState(false);
   const [isProfessional, setProfessional] = useState(false);
+
+  // const location = useLocation();
+  // const isHome = location.pathname === '/';
 
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
@@ -135,7 +138,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar z-50">
+    <div className={`navbar z-50 `}>
       <div className="navbar-start w-1/4">
         <div className="dropdown">
           <label

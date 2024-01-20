@@ -17,8 +17,6 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
     healthcare_professional,
     target_audience,
     description,
-    confirmationStatus,
-    paymentStatus,
   } = camp;
   const campus1 = campus.filter((cam) => cam._id === _id);
   const campData = { ...campus1[0] };
@@ -82,8 +80,8 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
       description: description,
       campId: _id,
       participants: participants + 1,
-      paymentStatus: paymentStatus,
-      confirmationStatus: confirmationStatus,
+      paymentStatus: "unpaid",
+      confirmationStatus: "pending",
     };
     axiosSecure.post(`/participants`, menuItems).then((responses) => {
       if (responses.data.modifiedCount) {
@@ -93,6 +91,13 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
       }
     });
 
+    axiosSecure.patch(`/participants/${_id}`, menuItems).then((responses) => {
+      if (responses.data.modifiedCount) {
+        // a
+      } else {
+        // dtrg
+      }
+    });
     axiosSecure.patch(`/campus/${_id}`, menuItems).then((responses) => {
       if (responses.data.modifiedCount) {
         // a

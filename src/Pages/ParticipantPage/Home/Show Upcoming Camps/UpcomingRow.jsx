@@ -91,7 +91,7 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
         </td>
         <td className="py-2 px-4 border-b-4">{camp?.target_audience}</td>
         <td className="py-2 px-4 border-b-4">
-          {camp?.description.slice(0, 20)}
+          {camp?.description?.slice(0, 20)}
         </td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
           <button className="flex justify-center m-1 p-1 rounded bg-[#6db2da]">

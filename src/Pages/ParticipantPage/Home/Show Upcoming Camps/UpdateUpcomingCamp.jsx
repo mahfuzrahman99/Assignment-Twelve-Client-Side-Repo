@@ -75,7 +75,7 @@ const UpdateUpcomingCamp = ({ showModal, setShowModal, camp }) => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/organizer/manage_camps");
+        navigate("/organizer/manage_upcoming_camps");
       } else {
         Swal.fire({
           icon: "error",

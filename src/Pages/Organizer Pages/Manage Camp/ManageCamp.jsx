@@ -59,7 +59,7 @@ const ManageCamp = () => {
       <div>
         <div className="bg-gray-100 p-4 overflow-x-auto">
           <h1 className="text-xl md:text-3xl font-bold">
-            Total Users: {campus.length}
+            Total Camps: {campus.length}
           </h1>
           <div>
             <table className="min-w-full bg-gray-300">

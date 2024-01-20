@@ -9,6 +9,7 @@ const ParticipantProfileDesign = ({ user }) => {
   const {
     phoneNumber,
     address,
+    role,
     nationality,
     dateOfBirth,
     background,
@@ -18,6 +19,7 @@ const ParticipantProfileDesign = ({ user }) => {
     graduation,
   } = user1 || {};
 
+  console.log(role);
   return (
     <div>
       <div className="">
@@ -35,6 +37,10 @@ const ParticipantProfileDesign = ({ user }) => {
             <p>
               <span className="text-lg font-bold">Address: </span>
               {address}
+            </p>
+            <p>
+              <span className="text-lg font-bold">Role: </span>
+              {role}
             </p>
             <p>
               <span className="text-lg font-bold">Nationality: </span>

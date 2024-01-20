@@ -1,18 +1,39 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import swal from "sweetalert";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useUsers from "../../../Hooks/useUsers";
 
 const SocialLogin = ({ disabled }) => {
-  const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+  const { signInWithGoogle, signInWithGithub, user } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
+  const [users] = useUsers();
+
+  
+  useEffect(() => {
+    const userRole = users.find((u) => u?.email === user?.email);
+    console.log(userRole, users);
+    //Organizer
+    if (userRole) {
+      if (userRole.role === "Organizer") {
+        // setOrganizer(true); //Participant
+        navigate("/organizer/organizer_profile");
+      } else if (userRole.role === "Participant") {
+        // setParticipant(true); //Professionals
+        navigate("/participant/participant_profile");
+      } else if (userRole.role === "Professionals") {
+        // setProfessional(true);
+        navigate("/professional/professional_profile");
+      }
+    }
+  }, [user,users]);
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
@@ -24,7 +45,6 @@ const SocialLogin = ({ disabled }) => {
         };
         axiosPublic.post("/users", userInfo).then(() => {
           swal("Success!", "Login Successfully!", "success");
-          navigate(location?.state ? location.state : "/");
         });
       })
       .catch(() => {
@@ -41,7 +61,6 @@ const SocialLogin = ({ disabled }) => {
         };
         axiosPublic.post("/users", userInfo).then(() => {
           swal("Success!", "Login Successfully!", "success");
-          navigate(location?.state ? location.state : "/");
         });
       })
       .catch(() => {

@@ -11,9 +11,11 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useUsers from "../../../Hooks/useUsers";
 import { Bars } from "react-loader-spinner";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageRegisteredRow = ({ participant, i, refetch }) => {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [users] = useUsers();
   // const [isAdmin] = useAdmin();
@@ -28,14 +30,9 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
       if (userRole.role === "Organizer") {
         setOrganizer(true);
       }
-      // else if (userRole.role === "Participant") {
-      //   setParticipant(true); //Professionals
-      // } else if (userRole.role === "Professionals") {
-      //   setProfessional(true);
-      // }
     }
   }, [user, users]);
-  // console.log(userRole);
+
   const [paid, setPaid] = useState(false);
   // Use a relevant query to fetch payment status
   const { data: payment_Intent = [], isLoading } = useQuery({
@@ -47,6 +44,7 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
       return res.data;
     },
   });
+  console.log(payment_Intent);
   const paymentObject = useMemo(
     () => ({ ...payment_Intent[0] }),
     [payment_Intent]
@@ -72,27 +70,26 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
     [payment_Intent]
   );
   const paymentObject6 = useMemo(
-    () => ({ ...payment_Intent[0] }),
+    () => ({ ...payment_Intent[6] }),
     [payment_Intent]
   );
   const paymentObject7 = useMemo(
-    () => ({ ...payment_Intent[1] }),
+    () => ({ ...payment_Intent[7] }),
     [payment_Intent]
   );
   const paymentObject8 = useMemo(
-    () => ({ ...payment_Intent[2] }),
+    () => ({ ...payment_Intent[8] }),
     [payment_Intent]
   );
   const paymentObject9 = useMemo(
-    () => ({ ...payment_Intent[3] }),
+    () => ({ ...payment_Intent[9] }),
     [payment_Intent]
   );
   const paymentObject10 = useMemo(
-    () => ({ ...payment_Intent[4] }),
+    () => ({ ...payment_Intent[10] }),
     [payment_Intent]
   );
 
-  console.log(paid, paymentObject, payment_Intent);
   useEffect(() => {
     if (
       paymentObject.paymentStatus === "paid" &&
@@ -153,8 +150,6 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
     }
   }, [
     paymentObject,
-    paymentObject.campId,
-    participant.campId,
     paymentObject1,
     paymentObject2,
     paymentObject3,
@@ -166,6 +161,8 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
     paymentObject9,
     paymentObject10,
     refetch,
+    paymentObject.campId,
+    participant.campId,
   ]);
 
   const handleCancel = async () => {
@@ -203,6 +200,40 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
     }
   };
 
+  console.log(participant);
+
+  // const {confirmationStatus}= participant;
+  const handleConfirmedPayment = (id) => {
+    const updateInfo = {
+      confirmationStatus: "confirmed",
+    };
+
+    axiosSecure.patch(`/payments/${id}`, updateInfo).then((responses) => {
+      console.log(responses.data);
+      if (responses.data.modifiedCount) {
+        refetch()
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    axiosSecure.patch(`/participants/${id}`, updateInfo).then((responses) => {
+      console.log(responses.data);
+      if (responses.data.modifiedCount) {
+        refetch();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Failed to update your profile. Please try again.",
+        });
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  };
+
   return (
     <>
       <tr className="bg-gray-100">
@@ -212,21 +243,16 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
           {participant.scheduled_date_time}
         </td>
         <td className="py-2 px-4 border-b-4">{participant.venue}</td>
-        <td className="py-2 px-4 border-b-4">{participant.camp_fees}</td>
+        <td className="py-2 px-4 border-b-4">${participant.camp_fees}</td>
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
-            <button
-              className={`${paid ? "text-gray-500 disabled" : "text-blue-500"}`}
-            >
-              {!paid ? (
-                <Link
-                // to={`/participant/payment_camps_registered_camps/${participant._id}`}
-                >
-                  {/* {paid || isOrganizer ? "Paid" : "Pay"} */}
-                  <span className="text-blue-500">Unpaid</span>
+            <button>
+              {paid ? (
+                <Link>
+                  <span className="text-gray-500">Paid</span>
                 </Link>
               ) : (
-                <span className="text-gray-500">Paid</span>
+                <span className="text-gray-500">Unpaid</span>
               )}
             </button>
           ) : (
@@ -245,19 +271,21 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
         </td>
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
-            <button
-            // className={`${paid || isOrganizer ? "text-gray-500 disabled" : "text-blue-500"}`}
-            >
-              {!paid ? (
-                <Link
-                // to={`/participant/payment_camps_registered_camps/${participant._id}`}
+            <button>
+              { paid ? <p>
+              {participant.confirmationStatus === "pending" ? (
+                <span
+                  onClick={() => handleConfirmedPayment(participant._id)}
+                  className="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded"
                 >
-                  <span className="text-blue-500">Pending</span>
-                  {/* {paid || isOrganizer ? "Confirmed" : "Pending"}  */}
-                </Link>
+                  Accept
+                </span>
+              ) : participant.confirmationStatus === "confirmed" ? (
+                <span className="text-blue-500">Confirmed</span>
               ) : (
-                <span className="text-gray-500">Confirmed</span>
+                ""
               )}
+              </p> : <p className="bg-[#9ca3af] text-white py-1 px-2 rounded">Pending</p>}
             </button>
           ) : (
             <p>
@@ -275,16 +303,18 @@ const ManageRegisteredRow = ({ participant, i, refetch }) => {
         </td>
         <td className="py-2 px-4 border-b-4">
           {!isLoading ? (
-            <button
-              onClick={paid && handleCancel}
-              className={` ${
-                paid
-                  ? "bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded"
-                  : "bg-gray-400 text-white py-1 px-2 rounded"
-              }`}
-            >
-              Cancel
-            </button>
+            <span>
+              {
+                paid ? <button
+                onClick={handleCancel}
+                className={` ${
+                 "bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded"
+                }`}
+              >
+                Cancel
+              </button> : <button className="bg-gray-400 text-white py-1 px-2 rounded">Cancel</button>
+              }
+            </span>
           ) : (
             <p>
               <Bars

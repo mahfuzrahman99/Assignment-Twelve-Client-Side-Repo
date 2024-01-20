@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <PrivetRout><PopularCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-twelve-server-side-xi.vercel.app/campus/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/campus/${params.campId}`
           ),
       },
       {
@@ -55,18 +55,13 @@ const router = createBrowserRouter([
         element: <PrivetRout><UpcomingCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-twelve-server-side-xi.vercel.app/upcoming/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/upcoming/${params.campId}`
           ),
       },
       {
         path: "/availableCamps",
         element: <PrivetRout><AvailableCamps /></PrivetRout>,
       },
-      {},
-      {},
-      {},
-      {},
-      {},
     ],
   },
   {
@@ -90,7 +85,7 @@ const router = createBrowserRouter([
         element: <UpdateCamps />,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-twelve-server-side-xi.vercel.app/campus/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/campus/${params.campId}`
           ),
       },
       {
@@ -109,12 +104,6 @@ const router = createBrowserRouter([
         path: "add_upcoming_camp",
         element: <AddUpcomingCamps />,
       },
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
     ],
   },
   {
@@ -125,10 +114,6 @@ const router = createBrowserRouter([
         path:"professional_profile",
         element:<ProfessionalProfile/>
       },
-      {},
-      {},
-      {},
-      {},
     ]
   },
   {
@@ -148,7 +133,7 @@ const router = createBrowserRouter([
         element: <Payment />,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-twelve-server-side-xi.vercel.app/payments/${params.id}`
+            `https://carecampuspro-server-side.vercel.app/payments/${params.id}`
           ),
       },
       {
@@ -159,12 +144,6 @@ const router = createBrowserRouter([
         path:"feedback_and_ratings",
         element:<FeedbackAndRatings/>,
       },
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
     ],
   },
   {

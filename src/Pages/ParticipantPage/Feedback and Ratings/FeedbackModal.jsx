@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -23,43 +23,7 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
     },
   });
 
-  // const handleFeedbackSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { elements } = e.target;
-  //   const name = elements.name.value;
-  //   const photoURL = elements.photoURL.value;
-  //   const rating = elements.rating.value;
-  //   const date = elements.date.value;
-  //   const camp_name = elements.camp_name.value;
-  //   const feedbackItem = {
-  //     name,
-  //     photoURL,
-  //     rating,
-  //     date,
-  //     camp_name,
-  //   };
-
-  //   axiosSecure
-  //     .post("/feedbackPost", feedbackItem)
-  //     .then((res) => {
-  //       // Check the response
-  //       console.log(res.data);
-  //       if (res.data.insertedId) {
-  //         refetch();
-  //         Swal.fire({
-  //           position: "top",
-  //           icon: "success",
-  //           title: `Feedback is added to the testimonials feed`,
-  //           showConfirmButton: false,
-  //           timer: 1500,
-  //         });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       // Log any error that occurs
-  //       console.error("Error posting feedback:", error);
-  //     });
-  // };
+  const formRef = useRef();
 
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
@@ -67,6 +31,7 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
     const name = elements.name.value;
     const rating = elements.rating.value;
     const date = elements.date.value;
+    const message = elements.message.value;
     const camp_name = elements.camp_name.value;
     const image = elements.photoURL.files[0];
     const formData = new FormData();
@@ -78,12 +43,14 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
         const feedbackItems = {
           name,
           rating,
+          message,
           date,
           camp_name,
           image: res.data.data.display_url,
         };
         axiosSecure.post("/feedbackPost", feedbackItems).then((responses) => {
           if (responses.data.insertedId) {
+            formRef.current.reset();
             Swal.fire({
               position: "top-center",
               icon: "success",
@@ -110,7 +77,7 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
       {showModal && (
         <dialog id="my_modal_1" className="modal" open>
           <div className="modal-box max-w-2xl bg-[#6db2da] bg-opacity-80">
-            <form onSubmit={handleFeedbackSubmit}>
+            <form ref={formRef} onSubmit={handleFeedbackSubmit}>
               <div className="md:grid grid-cols-2 p-3 gap-2">
                 <div className="w-full">
                   <label>
@@ -168,6 +135,16 @@ const FeedbackModal = ({ showModal, setShowModal }) => {
                       )
                     )}
                   </select>
+                </div>
+                <div className="w-full  col-span-2">
+                  <label>
+                    <h1 className="font-semibold">Message</h1>
+                  </label>
+                  <textarea
+                    type="text"
+                    className="w-full mb-2 p-3 rounded-md"
+                    name="message"
+                  />
                 </div>
                 <div className="flex ">
                   <button className="btn w-1/2">Submit</button>

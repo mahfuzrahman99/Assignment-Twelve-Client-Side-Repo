@@ -20,8 +20,8 @@ const UpcomingOneCamp = ({ camp }) => {
 
   return (
     <div>
-      <div className="mb-4 bg-[#54b9f4] rounded-lg relative">
-        <div className="h-[480px] card shadow-xl">
+      <div className="mb-4 bg-white shadow-lg rounded-lg relative">
+        <div className="h-[480px] card">
           <figure>
             <PhotoView src={image}>
               <img src={image} alt="Cars" className="h-[180px] w-full" />

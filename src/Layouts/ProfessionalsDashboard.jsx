@@ -21,7 +21,7 @@ const ProfessionalsDashboard = () => {
                         : "font-bold hover:text-[#fafafa] hover:font-bold  text-[#fafafa]"
                     }
                   >
-                    PARTICIPANT PROFILE
+                      PROFESSIONAL PROFILE
                   </NavLink>
                 </li>
                 {/* <li>

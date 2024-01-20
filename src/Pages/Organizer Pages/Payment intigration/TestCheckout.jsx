@@ -51,6 +51,8 @@ const TestCheckout = () => {
   const handlePayment = async (e) => {
     e.preventDefault();
 
+    
+
     if (!stripe || !elements) {
       return;
     }
@@ -97,7 +99,7 @@ const TestCheckout = () => {
           camp_name,
           camp_fees,
           confirmationStatus,
-          paymentStatus: "paid",
+          paymentStatus,
           venue,
           campId,
         };
@@ -115,15 +117,16 @@ const TestCheckout = () => {
           });
           navigate("/participant/payment_history");
         }
-        const updatedParticipants = {
-          paymentStatus: "paid",
-          confirmationStatus: "Confirmed"
-        };
-        axiosSecure.patch(`/participants/${id}`, updatedParticipants).then((responses) => {
-          if (responses.data.modifiedCount) {
-            refetch();
-          }
-        });
+        // const updatedParticipants = {
+        //   paymentStatus: "paid",
+        //   confirmationStatus: "confirmed"
+        // };
+        // axiosSecure.patch(`/participants/${id}`, updatedParticipants).then((responses) => {
+        //   if (responses.data.modifiedCount) {
+        //     refetch();
+        //   }
+        // });
+        
       }
     }
   };

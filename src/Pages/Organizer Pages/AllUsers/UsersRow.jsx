@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
-import { FaUsers } from "react-icons/fa";
+// import { FaUsers } from "react-icons/fa";
 // import { MdSecurityUpdateGood } from "react-icons/md";
 import { IoPersonRemoveOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAdmin from "../../../Hooks/useAdmin";
 import { PhotoView } from "react-photo-view";
+import useUsers from "../../../Hooks/useUsers";
 
-const UsersRow = ({ user, i, handleRemove, handleMakeAdmin }) => {
+const UsersRow = ({ user, i, handleRemove, }) => {
   const { user: user1 } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
+  const [users] = useUsers();
 
   return (
     <>
@@ -27,7 +29,8 @@ const UsersRow = ({ user, i, handleRemove, handleMakeAdmin }) => {
         <td className="py-2 px-4 border-b-4">{user.name}</td>
         <td className="py-2 px-4 border-b-4">{user.email}</td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
-          {user.role === "admin" ? (
+        {users.rol}
+          {/* {user.role === "admin" ? (
             <p className="text-xl font-semibold text-[#47b2f1]">Admin</p>
           ) : (
             <span
@@ -36,7 +39,7 @@ const UsersRow = ({ user, i, handleRemove, handleMakeAdmin }) => {
             >
               <FaUsers />
             </span>
-          )}
+          )} */}
         </td>
         {/* <td className="py-2 px-4 border-b-4">
           {user.role === "admin" ? (
