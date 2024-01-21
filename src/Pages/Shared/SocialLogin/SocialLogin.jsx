@@ -26,7 +26,7 @@ const SocialLogin = ({ disabled }) => {
       } else if (userRole.role === "Participant") {
         // setParticipant(true); //Professionals
         navigate("/participant/participant_profile");
-      } else if (userRole.role === "Professionals") {
+      } else if (userRole.role === "Professional") {
         // setProfessional(true);
         navigate("/professional/professional_profile");
       }

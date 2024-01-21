@@ -70,7 +70,7 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
 
     const menuItems = {
       camp_name: camp_name,
-      camp_fees:camp_fees,
+      camp_fees: camp_fees,
       scheduled_date_time: scheduled_date_time,
       venue: venue,
       image: image,
@@ -84,27 +84,26 @@ const JoinCampModal = ({ showModal, setShowModal, camp }) => {
       confirmationStatus: "pending",
     };
     axiosSecure.post(`/participants`, menuItems).then((responses) => {
-      if (responses.data.modifiedCount){
+      if (responses.data.modifiedCount) {
         // a
       } else {
         // d
       }
     });
 
-    axiosSecure.patch(`/participants/${_id}`, menuItems).then((responses) => {
-      if (responses.data.modifiedCount) {
-        // a
-      } else {
-        // dtrg
-      }
-    });
-    // axiosSecure.patch(`/campus/${_id}`, menuItems).then((responses) => {
-    //   if (responses.data.modifiedCount) {
-    //     // a
-    //   } else {
-    //     // dtrg
-    //   }
-    // });
+    axiosSecure
+      .put(`/participants/incrementParticipants/${_id}`, {
+        campId: _id,
+        participants: participants + 1,
+      })
+      .then((responses) => {
+        console.log(responses.data);
+        if (responses.data.modifiedCount) {
+          // 
+        } else {
+          // 
+        }
+      });
   };
 
   return (

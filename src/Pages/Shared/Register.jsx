@@ -161,7 +161,7 @@ const Register = () => {
                       Select Your Role
                     </option>
                     <option>Organizer</option>
-                    <option>Professionals</option>
+                    <option>Professional</option>
                     <option>Participant</option>
                   </select>
                 </div>

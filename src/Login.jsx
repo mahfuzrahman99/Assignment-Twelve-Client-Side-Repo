@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "./Provider/AuthProvider";
 import SocialLogin from "./Pages/Shared/SocialLogin/SocialLogin";
 import useUsers from "./Hooks/useUsers";
+import { baseURL } from "./Hooks/useAxiosPublic";
 
 const Login = () => {
   const [show, setShow] = useState(true);
@@ -33,19 +34,19 @@ const Login = () => {
     console.log(userRole, users);
     //Organizer
     if (userRole) {
+      console.log(userRole.role);
       if (userRole.role === "Organizer") {
         // setOrganizer(true); //Participant
         navigate("/organizer/organizer_profile");
       } else if (userRole.role === "Participant") {
         // setParticipant(true); //Professionals
         navigate("/participant/participant_profile");
-      } else if (userRole.role === "Professionals") {
+      } else if (userRole.role === "Professional") {
         // setProfessional(true);
         navigate("/professional/professional_profile");
       }
     }
   }, [user,users]);
-
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -60,7 +61,7 @@ const Login = () => {
           console.log("after signin");
           axios
             .post(
-              "https://assignment-twelve-server-side-xi.vercel.app/jwt",
+              `${baseURL}/jwt`,
               user,
               { withCredentials: true }
             )

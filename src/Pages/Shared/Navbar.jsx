@@ -21,14 +21,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
-    console.log(userRole?.role);
+    // console.log(userRole?.role);
     //Organizer
     if (userRole) {
       if (userRole.role === "Organizer") {
         setOrganizer(true); //Participant
       } else if (userRole.role === "Participant") {
         setParticipant(true); //Professionals
-      } else if (userRole.role === "Professionals") {
+      } else if (userRole.role === "Professional") {
         setProfessional(true);
       }
     }

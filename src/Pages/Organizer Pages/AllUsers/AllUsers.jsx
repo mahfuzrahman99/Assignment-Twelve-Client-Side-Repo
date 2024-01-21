@@ -47,38 +47,7 @@ const AllUsers = () => {
     }
   };
 
-  const handleUpdateUserRole = async (user) => {
-    const confirmed = await Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to update his/shes role!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update his/shes role!",
-    });
-
-    if (confirmed.isConfirmed) {
-      try {
-        const res = await axiosSecure.patch(`/users/${user._id}`);
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            title: "maked!",
-            text: `${user?.name} has been maked ${user.role}.`,
-            icon: "success",
-          });
-        }
-      } catch (error) {
-        console.error("Error updating his/shes role", error);
-        Swal.fire({
-          title: "Error",
-          text: "An error occurred while updating his/shes role.",
-          icon: "error",
-        });
-      }
-    }
-  };
+ 
 
   return (
     <div className="max-w-4xl mx-auto w-[300px] md:w-auto ">
@@ -108,7 +77,7 @@ const AllUsers = () => {
                   <UsersRow
                     key={user._id}
                     handleRemove={handleRemove}
-                    handleUpdateUserRole={handleUpdateUserRole}
+                    refetch={refetch}
                     user={user}
                     i={i}
                   />

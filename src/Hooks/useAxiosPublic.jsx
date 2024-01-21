@@ -1,7 +1,11 @@
 import axios from "axios";
-
+export const baseURL =
+  import.meta.env.MODE == "development"
+    ? "http://localhost:7000"
+    : import.meta.env.VITE_BASE_URL;
 const axiosPublic = axios.create({
-  baseURL: "https://carecampuspro-server-side.vercel.app",
+  baseURL: baseURL,
+  // baseURL: "https://carecampuspro-server-side.vercel.app",
   // baseURL: "http://localhost:7000",
 });
 const useAxiosPublic = () => {
