@@ -13,7 +13,7 @@ const OrganizerProfile = () => {
   
 
   return (
-    <div className="max-w-4xl mx-auto bg-[#6db2da] md:mt-32 p-8 rounded-lg shadow-xl">
+    <div className="max-w-4xl mx-auto bg-[#6db2da] p-8 rounded-lg shadow-xl">
     <Helmet>
       <title>CareCampusPro | User Profile</title>
     </Helmet>

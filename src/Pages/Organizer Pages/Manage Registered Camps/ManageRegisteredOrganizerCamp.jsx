@@ -21,13 +21,13 @@ const ManageRegisteredOrganizerCamp = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mb-24 w-[300px]  md:w-auto">
+    <div className="max-w-5xl mx-auto w-[300px]  md:w-auto">
       <Helmet>
         <title>CareCampusPro | Manage Registered Camps</title>
       </Helmet>
       <SectionTitle heading={"Manage Registered Camps"} subHeading={"Hurry Up..."} />
       <div className="overflow-x-auto">
-        <div className="bg-white p-4">
+        <div className="bg-white p-4  md:h-[70vh] overflow-y-auto">
           <h1 className="text-xl md:text-3xl font-bold">
             Total Users: {participants.length}
           </h1>

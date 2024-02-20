@@ -74,7 +74,7 @@ const ManageRegisteredRow = ({ participant, i, refetch, isLoading }) => {
 
   return (
     <>
-      <tr className="bg-gray-100">
+      <tr className="bg-gray-100 text-center">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">{participant.camp_name}</td>
         <td className="py-2 px-4 border-b-4">

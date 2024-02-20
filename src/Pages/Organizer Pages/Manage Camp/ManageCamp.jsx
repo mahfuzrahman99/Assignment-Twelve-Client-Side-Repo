@@ -49,7 +49,7 @@ const ManageCamp = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto w-[300px] md:w-auto">
+    <div className="max-w-5xl mx-auto w-[300px] md:w-auto">
       <Helmet>
         <title>CareCampusPro | Manage Camps</title>
       </Helmet>
@@ -57,7 +57,7 @@ const ManageCamp = () => {
         <SectionTitle subHeading={"Hurry Up!"} heading={"MANAGE ALL campus"} />
       </div>
       <div>
-        <div className="bg-gray-100 p-4 overflow-x-auto">
+        <div className="bg-gray-100 p-4 overflow-x-auto  md:h-[70vh] overflow-y-auto">
           <h1 className="text-xl md:text-3xl font-bold">
             Total Camps: {campus.length}
           </h1>

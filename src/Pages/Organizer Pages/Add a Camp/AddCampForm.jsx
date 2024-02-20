@@ -67,8 +67,8 @@ const AddCampForm = () => {
         <title>CareCampusPro | Add Camp</title>
       </Helmet>
       <SectionTitle heading={"Add a camp"} subHeading={"Hurry Up..."} />
-      <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center overflow-x-auto">
-        <div className="max-w-3xl w-full md:w-auto bg-gray-200 p-8 rounded shadow-lg">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center bg-gray-200 overflow-x-auto  md:h-[70vh] overflow-y-auto max-w-3xl mx-auto">
+        <div className=" w-full md:w-auto p-8 rounded">
           <div className=" md:grid grid-cols-2 gap-2">
             <h2 className="text-lg md:text-2xl font-semibold mb-6 text-center text-blue-500 col-span-2">
               Add Medical Camp
