@@ -19,7 +19,7 @@
     "@table-library/react-table-library": "^4.1.7",
     "@tanstack/react-query": "^5.8.6",
     "axios": "^1.6.2",
-    "firebase": "^10.6.0",
+    "firebase": "^10.8.0",
     "framer-motion": "^10.16.7",
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
@@ -60,5 +60,13 @@
   "main": "postcss.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahfuzrahman99/Assignment-Twelve-Client-Side-Repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahfuzrahman99/Assignment-Twelve-Client-Side-Repo/issues"
+  },
+  "homepage": "https://github.com/mahfuzrahman99/Assignment-Twelve-Client-Side-Repo#readme"
 }
