@@ -5,48 +5,21 @@ import { motion } from "framer-motion";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "react-photo-view/dist/react-photo-view.css";
 import NavImg from "../../assets/CareCampusPro1-removebg-preview.png";
-import useUsers from "../../Hooks/useUsers";
-import useAdmin from "../../Hooks/useAdmin";
 import useGetUserRole from "../../Hooks/useGetUserRole";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [users] = useUsers();
   const userRole = useGetUserRole(user?.email);
-  const [isAdmin] = useAdmin();
-  const [role, setRole] = useState("");
-  const [isOrganizer, setOrganizer] = useState(false);
-  const [isParticipant, setParticipant] = useState(false);
-  const [isProfessional, setProfessional] = useState(false);
-
   console.log(userRole);
-  // const location = useLocation();
-  // const isHome = location.pathname === '/';
+  let link = null;
+  if (userRole === "Organizer") {
+    link = "/organizer/organizer_profile";
+  } else if (userRole === "Participant") {
+    link = "/participant/participant_profile";
+  } else if (userRole === "Professional") {
+    link = "/professional/professional_profile";
+  }
 
-  useEffect(() => {
-    const userRole = users.find((u) => u?.email === user?.email);
-    // console.log(userRole?.role);
-    //Organizer
-    if (userRole) {
-      setRole(userRole);
-      if (userRole.role === "Organizer") {
-        setOrganizer(true); //Participant
-      } else if (userRole.role === "Participant") {
-        setParticipant(true); //Professionals
-      } else if (userRole.role === "Professional") {
-        setProfessional(true);
-      }
-    }
-  }, [user, users]);
-
-  console.log(role);
-
-  // let link = null;
-  // if (isOrganizer || isAdmin) {
-
-  // }
-
-  // const isOrganizerUser = aUser.role == 'Organizer';
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -97,15 +70,7 @@ const Navbar = () => {
       <li>
         {user ? (
           <NavLink
-            to={
-              isOrganizer || isAdmin
-                ? "/organizer/organizer_profile"
-                : isParticipant
-                ? "/participant/participant_profile"
-                : isProfessional
-                ? "/professional/professional_profile"
-                : null
-            }
+            to={link}
             className={({ isActive, isPending }) =>
               isPending
                 ? "pending"

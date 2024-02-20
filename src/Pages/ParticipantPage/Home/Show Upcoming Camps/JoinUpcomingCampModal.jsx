@@ -7,7 +7,7 @@ const JoinUpcomingCampModal = ({ showModal, setShowModal, upcomingCamp }) => {
   const {
     _id,
     camp_fees,
-    interested,
+    participants,
   } = upcomingCamp || {};
   console.log(upcomingCamp);
   const handleJoinCamp = (e) => {
@@ -32,7 +32,7 @@ const JoinUpcomingCampModal = ({ showModal, setShowModal, upcomingCamp }) => {
       address,
       status,
       campId: _id,
-      interested: interested + 1,
+      participants: participants + 1,
     };
     axiosSecure
       .post("/ORManganate", joiningInfo)
@@ -56,6 +56,7 @@ const JoinUpcomingCampModal = ({ showModal, setShowModal, upcomingCamp }) => {
       .catch((error) => {
         console.error("Error your submission not success:", error);
       });
+      axiosSecure.put(`/upcomingPutParticipant/${_id}`,{participants: participants + 1})
 
   };
 

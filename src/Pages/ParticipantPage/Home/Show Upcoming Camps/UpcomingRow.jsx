@@ -65,10 +65,17 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
       }
     }
   };
-console.log(camp.interested)
+
+  const handleAccepted = () => {
+    axiosSecure.put(`/upcomingPutStatus/${camp?._id}`, {
+      professionalStatus: "Accepted",
+    });
+  };
+  console.log(camp)
+
   return (
     <>
-      <tr className="bg-gray-100 text-xs">
+      <tr className="bg-gray-100 text-xs text-center">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">
           <PhotoView src={camp?.image || user1?.photoURL}>
@@ -83,16 +90,24 @@ console.log(camp.interested)
         <td className="py-2 px-4 border-b-4">{camp?.scheduled_date_time}</td>
         <td className="py-2 px-4 border-b-4">{camp?.venue}</td>
         <td className="py-2 px-4 border-b-4 text-center">{camp?.interested}</td>
-        <td className="py-2 px-4 border-b-4">{}</td>
+        <td className="py-2 px-4 border-b-4">{camp?.participants}</td>
         <td className="py-2 px-4 border-b-4">{camp?.target_audience}</td>
-        <td className="py-2 px-4 border-b-4">{}</td>
+        <td className="py-2 px-4 border-b-4 text-xl">
+          {camp?.professionalStatus ? camp?.professionalStatus : "Pending"}
+        </td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
           {camp?.interested >= 3 ? (
-            <button className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]">
+            <button
+              onClick={handleAccepted}
+              className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]"
+            >
               <span className="text-2xl">Accept</span>
             </button>
           ) : (
-            <button disabled className="btn flex justify-center mx-1 p-1 rounded ">
+            <button
+              disabled={camp?.professionalStatus}
+              className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]"
+            >
               <span className="text-2xl">Accept</span>
             </button>
           )}
@@ -130,18 +145,25 @@ console.log(camp.interested)
           }
         </td>
         <td className="py-2 px-4 border-b-4">
-          <button
-            onClick={() => handlePublish(camp._id, camp)}
-            className={`${
-              user1
-                ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
-                : "bg-red-500 text-white px-2 py-1 rounded ml-2"
-            }`}
-          >
-            <span className="text-3xl">
-              <MdPublish />
-            </span>
-          </button>
+          {camp?.professionalStatus === "Accepted" && camp?.interested >= 3 ? (
+            <button
+              onClick={() => handlePublish(camp._id, camp)}
+              className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+            >
+              <span className="text-3xl">
+                <MdPublish />
+              </span>
+            </button>
+          ) : (
+            <button
+            disabled={true}
+              className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+            >
+              <span className="text-3xl">
+                <MdPublish />
+              </span>
+            </button>
+          )}
         </td>
       </tr>
     </>

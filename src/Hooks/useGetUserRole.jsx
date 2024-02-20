@@ -10,7 +10,7 @@ const useGetUserRole = () => {
   useEffect(() => {
     if (!isLoading) {
       axiosPublic
-        .get(`/userRole/${email}`)
+        .get(`/getUserRole/${email}`)
 
         .then((res) => {
           setUSerRole(res.data);

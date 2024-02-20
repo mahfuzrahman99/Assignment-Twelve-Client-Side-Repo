@@ -61,6 +61,7 @@ const JoinProfessionalCampModal = ({ showModal, setShowModal, upcomingCamp }) =>
       .catch((error) => {
         console.error("Error your submission not success:", error);
       });
+      axiosSecure.put(`/upcomingPut/${_id}`,{interested: interested + 1})
 
   };
 
