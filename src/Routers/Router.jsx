@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import ParticipantUser from "../Layouts/ParticipantUser";
 import Home from "../Pages/ParticipantPage/Home/Home";
 import Register from "../Pages/Shared/Register";
-// import ContactUs from "../Pages/ContactUs/ContactUs";
 import PopularCampDetails from "../Components/Popular Campus/PopularCampDetails";
 import Login from "../Login";
 import AvailableCamps from "../Pages/ParticipantPage/Available Camps Page/AvailableCamps";
@@ -27,7 +26,7 @@ import ProfessionalProfile from "../Pages/Professional Page/Professional Profile
 import PrivetRout from "./PrivetRout";
 import ManageUpcomingCamp from "../Pages/ParticipantPage/Home/Show Upcoming Camps/ManageUpcomingCamp";
 import Contact_Us from "../Pages/ContactUs/Contact_Us";
-import { axiosPublic } from "../Hooks/useAxiosPublic";
+// import { axiosPublic } from "../Hooks/useAxiosPublic";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +47,8 @@ const router = createBrowserRouter([
         element: <PrivetRout><PopularCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:7000/campus/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/campus/${params.campId}`
+            // `http://localhost:7000/campus/${params.campId}`
             // `${axiosPublic}/campus/${params.campId}`
           ),
       },
@@ -57,7 +57,8 @@ const router = createBrowserRouter([
         element: <PrivetRout><UpcomingCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:7000/upcoming/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/upcoming/${params.campId}`
+            // `http://localhost:7000/upcoming/${params.campId}`
             // `${axiosPublic}/upcoming/${params.campId}`
           ),
       },
@@ -88,7 +89,9 @@ const router = createBrowserRouter([
         element: <UpdateCamps />,
         loader: ({ params }) =>
           fetch(
-            `${axiosPublic}/campus/${params.campId}`
+            `https://carecampuspro-server-side.vercel.app/campus/${params.campId}`
+            // `http://localhost:7000/upcoming/${params.campId}`
+            // `${axiosPublic}/campus/${params.campId}`
           ),
       },
       {
@@ -136,7 +139,9 @@ const router = createBrowserRouter([
         element: <Payment />,
         loader: ({ params }) =>
           fetch(
-            `${axiosPublic}/payments/${params.id}`
+            `https://carecampuspro-server-side.vercel.app/payments/${params.id}`
+            // `http://localhost:7000/upcoming/${params.campId}`
+            // `${axiosPublic}/payments/${params.id}`
           ),
       },
       {

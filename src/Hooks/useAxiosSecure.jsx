@@ -5,8 +5,8 @@ import axios from "axios";
 //     ? "http://localhost:7000"
 //     : import.meta.env.VITE_BASE_URL;
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:7000",
-  // baseURL: "https://assignment-twelve-server-side-iota.vercel.app",
+  // baseURL: "http://localhost:7000",
+  baseURL: "https://carecampuspro-server-side.vercel.app",
   // baseURL: baseURL,
 });
 console.log(import.meta.env.MODE == "development");

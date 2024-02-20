@@ -16,7 +16,7 @@ const ParticipantProfile = () => {
         <title>CareCampusPro | Participant Profile</title>
       </Helmet>
       <SectionTitle heading={user?.displayName} />
-      <div className="max-w-4xl mx-auto bg-[#6db2da] p-8 rounded-lg shadow-xl">
+      <div className="max-w-4xl mx-auto bg-[#6db2da] px-8 pt-5 p-2 rounded-lg shadow-xl">
         <div className="flex justify-around border border-[#6db2da] shadow-lg rounded-md mb-3">
           <ParticipantProfileDesign user={user}/>
         </div>
