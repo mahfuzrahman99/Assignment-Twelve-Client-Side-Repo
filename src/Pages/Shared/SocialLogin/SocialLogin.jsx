@@ -42,6 +42,7 @@ const SocialLogin = ({ disabled }) => {
         const userInfo = {
           email: res.user?.email,
           name: res.user?.displayName,
+          role: "Organizer"
         };
         axiosPublic.post("/users", userInfo).then(() => {
           swal("Success!", "Login Successfully!", "success");
@@ -58,6 +59,7 @@ const SocialLogin = ({ disabled }) => {
         const userInfo = {
           email: res.user?.email,
           name: res.user?.displayName,
+          role: "Organizer"
         };
         axiosPublic.post("/users", userInfo).then(() => {
           swal("Success!", "Login Successfully!", "success");

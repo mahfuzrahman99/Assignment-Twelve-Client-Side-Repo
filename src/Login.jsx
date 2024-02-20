@@ -16,12 +16,13 @@ import Swal from "sweetalert2";
 import { AuthContext } from "./Provider/AuthProvider";
 import SocialLogin from "./Pages/Shared/SocialLogin/SocialLogin";
 import useUsers from "./Hooks/useUsers";
-import { baseURL } from "./Hooks/useAxiosPublic";
+// import { axiosPublic } from "./Hooks/useAxiosPublic";
 
 const Login = () => {
   const [show, setShow] = useState(true);
   const { user, signInUser } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(true);
+  const [role, setRole] = useState("");
   const captchaRef = useRef(null);
   const navigate = useNavigate();
   const [users] = useUsers();
@@ -31,10 +32,11 @@ const Login = () => {
 
   useEffect(() => {
     const userRole = users.find((u) => u?.email === user?.email);
+    setRole(userRole?.role)
     console.log(userRole, users);
     //Organizer
     if (userRole) {
-      console.log(userRole.role);
+      console.log(userRole?.role);
       if (userRole.role === "Organizer") {
         // setOrganizer(true); //Participant
         navigate("/organizer/organizer_profile");
@@ -47,6 +49,9 @@ const Login = () => {
       }
     }
   }, [user,users]);
+
+  console.log(role)
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -61,7 +66,8 @@ const Login = () => {
           console.log("after signin");
           axios
             .post(
-              `${baseURL}/jwt`,
+              `http://localhost:7000/jwt`,
+              // `${axiosPublic}/jwt`,
               user,
               { withCredentials: true }
             )

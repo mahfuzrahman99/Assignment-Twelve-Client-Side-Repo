@@ -36,6 +36,7 @@ const JoinProfessionalCampModal = ({ showModal, setShowModal, upcomingCamp }) =>
       specialization,
       campId: _id,
       interested: interested + 1,
+      status: "Pending"
     };
     axiosSecure
       .post("/organizerReview", joiningInfo)

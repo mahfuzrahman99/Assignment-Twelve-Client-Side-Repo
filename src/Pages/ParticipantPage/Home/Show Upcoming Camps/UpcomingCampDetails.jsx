@@ -14,6 +14,7 @@ import { PhotoView } from "react-photo-view";
 const UpcomingCampDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const upcomingCampus = useLoaderData();
+  console.log(upcomingCampus)
   const { user } = useContext(AuthContext);
   const [users] = useUsers();
   const [isOrganizer, setOrganizer] = useState(false);
@@ -29,7 +30,7 @@ const UpcomingCampDetails = () => {
         setOrganizer(true); //Participant
       } else if (userRole.role === "Participant") {
         setParticipant(true); //Professionals
-      } else if (userRole.role === "Professionals") {
+      } else if (userRole.role === "Professional") {
         setProfessional(true);
       }
     }

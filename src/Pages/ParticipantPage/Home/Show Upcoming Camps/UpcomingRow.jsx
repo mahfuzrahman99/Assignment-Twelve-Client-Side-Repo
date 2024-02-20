@@ -64,9 +64,8 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
         });
       }
     }
-
   };
-
+console.log(camp.interested)
   return (
     <>
       <tr className="bg-gray-100 text-xs">
@@ -83,20 +82,20 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
         <td className="py-2 px-4 border-b-4">{camp?.camp_name}</td>
         <td className="py-2 px-4 border-b-4">{camp?.scheduled_date_time}</td>
         <td className="py-2 px-4 border-b-4">{camp?.venue}</td>
-        <td className="py-2 px-4 border-b-4">
-          {camp?.specialized_service?.slice(0, 10)}
-        </td>
-        <td className="py-2 px-4 border-b-4">
-          {camp?.healthcare_professional?.slice(0, 10)}
-        </td>
+        <td className="py-2 px-4 border-b-4 text-center">{camp?.interested}</td>
+        <td className="py-2 px-4 border-b-4">{}</td>
         <td className="py-2 px-4 border-b-4">{camp?.target_audience}</td>
-        <td className="py-2 px-4 border-b-4">
-          {camp?.description?.slice(0, 20)}
-        </td>
+        <td className="py-2 px-4 border-b-4">{}</td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
-          <button className="flex justify-center m-1 p-1 rounded bg-[#6db2da]">
-            <span className="text-4xl">Accept</span>
-          </button>
+          {camp?.interested >= 3 ? (
+            <button className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]">
+              <span className="text-2xl">Accept</span>
+            </button>
+          ) : (
+            <button disabled className="btn flex justify-center mx-1 p-1 rounded ">
+              <span className="text-2xl">Accept</span>
+            </button>
+          )}
         </td>
         <td className="py-2 px-4 border-b-4 p-1 text-xl w-4">
           <button
@@ -131,7 +130,6 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
           }
         </td>
         <td className="py-2 px-4 border-b-4">
-          {/* {!OrManagemant?.interested > 2 ? ( */}
           <button
             onClick={() => handlePublish(camp._id, camp)}
             className={`${
@@ -144,19 +142,6 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
               <MdPublish />
             </span>
           </button>
-          {/* ) : ( */}
-          {/* <button
-              className={`${
-                user1
-                  ? "bg-red-500 text-white px-2 py-1 rounded ml-2 disabled"
-                  : "bg-red-500 text-white px-2 py-1 rounded ml-2"
-              }`}
-            >
-              <span className="text-3xl">
-                <MdPublish />
-              </span>
-            </button> */}
-          {/* )} */}
         </td>
       </tr>
     </>

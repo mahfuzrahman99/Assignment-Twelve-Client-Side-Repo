@@ -56,20 +56,20 @@ const ManageUpcomingCamp = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto w-[300px] md:w-auto">
+    <div className="max-w-5xl mx-auto w-[300px] md:w-auto">
       <Helmet>
         <title>CareCampusPro | Manage Upcoming Camps</title>
       </Helmet>
       <div>
         <SectionTitle subHeading={"Hurry Up!"} heading={"MANAGE Upcoming campus"} />
       </div>
-      <div>
-        <div className="bg-gray-100 p-4 overflow-x-auto">
+      <div className="">
+        <div className="bg-gray-100 p-4 overflow-x-auto md:h-[70vh] overflow-y-auto">
           <h1 className="text-xl md:text-3xl font-bold">
             Total Users: {upcoming.length}
           </h1>
           <div>
-            <table className="min-w-full bg-gray-300">
+            <table className="min-w-full bg-gray-300 ">
               <thead className="rounded-t-xl bg-[#6db2da]">
                 <tr className="rounded-t-xl bg-[#6db2da]">
                   <th className="py-2 px-4 border-b">NO</th>
@@ -77,10 +77,10 @@ const ManageUpcomingCamp = () => {
                   <th className="py-2 px-4 border-b">Camp Name</th>
                   <th className="py-2 px-4 border-b">Scheduled Date</th>
                   <th className="py-2 px-4 border-b">Venue</th>
-                  <th className="py-2 px-4 border-b">Services</th>
-                  <th className="py-2 px-4 border-b">Professionals</th>
+                  <th className="py-2 px-4 border-b">Interested professional</th>
+                  <th className="py-2 px-4 border-b">Participant count</th>
                   <th className="py-2 px-4 border-b">Audience</th>
-                  <th className="py-2 px-4 border-b">Description</th>
+                  <th className="py-2 px-4 border-b">Professionals status</th>
                   <th className="py-2 px-4 border-b">Accept Professionals</th>
                   <th className="py-2 px-4 border-b">Update</th>
                   <th className="py-2 px-4 border-b">Delete</th>

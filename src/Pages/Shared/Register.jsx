@@ -39,6 +39,7 @@ const Register = () => {
           updateTheProfile(name, photoURL, role)
             .then(() => {
               const userInfo = { name, photoURL, password, email, role };
+              console.log(userInfo)
               axiosPublic.post("/users", userInfo).then((res) => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -52,8 +53,9 @@ const Register = () => {
               console.log(err);
             });
         })
-        .catch(() => {
-          swal("Error!", "Please check your email or password!", "error");
+        .catch((err) => {
+          swal("Error!", "Please check your email or password!", "error" );
+          console.log(err)
         });
     } else {
       swal(

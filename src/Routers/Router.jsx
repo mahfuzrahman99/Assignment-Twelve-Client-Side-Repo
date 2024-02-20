@@ -27,7 +27,7 @@ import ProfessionalProfile from "../Pages/Professional Page/Professional Profile
 import PrivetRout from "./PrivetRout";
 import ManageUpcomingCamp from "../Pages/ParticipantPage/Home/Show Upcoming Camps/ManageUpcomingCamp";
 import Contact_Us from "../Pages/ContactUs/Contact_Us";
-import { baseURL } from "../Hooks/useAxiosPublic";
+import { axiosPublic } from "../Hooks/useAxiosPublic";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +48,8 @@ const router = createBrowserRouter([
         element: <PrivetRout><PopularCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `${baseURL}/campus/${params.campId}`
+            `http://localhost:7000/campus/${params.campId}`
+            // `${axiosPublic}/campus/${params.campId}`
           ),
       },
       {
@@ -56,7 +57,8 @@ const router = createBrowserRouter([
         element: <PrivetRout><UpcomingCampDetails /></PrivetRout>,
         loader: ({ params }) =>
           fetch(
-            `${baseURL}/upcoming/${params.campId}`
+            `http://localhost:7000/upcoming/${params.campId}`
+            // `${axiosPublic}/upcoming/${params.campId}`
           ),
       },
       {
@@ -86,7 +88,7 @@ const router = createBrowserRouter([
         element: <UpdateCamps />,
         loader: ({ params }) =>
           fetch(
-            `${baseURL}/campus/${params.campId}`
+            `${axiosPublic}/campus/${params.campId}`
           ),
       },
       {
@@ -134,7 +136,7 @@ const router = createBrowserRouter([
         element: <Payment />,
         loader: ({ params }) =>
           fetch(
-            `${baseURL}/payments/${params.id}`
+            `${axiosPublic}/payments/${params.id}`
           ),
       },
       {
