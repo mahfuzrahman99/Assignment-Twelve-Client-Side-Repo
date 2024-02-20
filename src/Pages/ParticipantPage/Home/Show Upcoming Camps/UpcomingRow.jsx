@@ -71,7 +71,7 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
       professionalStatus: "Accepted",
     });
   };
-  console.log(camp)
+  console.log(camp?.professionalStatus)
 
   return (
     <>
@@ -99,14 +99,15 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
           {camp?.interested >= 3 ? (
             <button
               onClick={handleAccepted}
+              disabled={camp?.professionalStatus === "Accepted"}
               className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]"
             >
               <span className="text-2xl">Accept</span>
             </button>
           ) : (
             <button
-              disabled={camp?.professionalStatus}
-              className=" btn flex justify-center mx-1 p-1 rounded bg-[#6db2da]"
+              disabled
+              className=" btn flex justify-center mx-1 p-1 rounded "
             >
               <span className="text-2xl">Accept</span>
             </button>
@@ -129,7 +130,6 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
           />
         </td>
         <td className="py-2 px-4 border-b-4">
-          {
             <button
               onClick={() => handleDelete(camp._id, camp)}
               className={`${
@@ -142,10 +142,9 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
                 <RiDeleteBin6Line />
               </span>
             </button>
-          }
         </td>
         <td className="py-2 px-4 border-b-4">
-          {camp?.professionalStatus === "Accepted" && camp?.interested >= 3 ? (
+          {camp?.professionalStatus === "Accepted" ? (
             <button
               onClick={() => handlePublish(camp._id, camp)}
               className="bg-red-500 text-white px-2 py-1 rounded ml-2"
@@ -156,8 +155,8 @@ const UpcomingRow = ({ camp, i, handleDelete, refetch, ORManganate }) => {
             </button>
           ) : (
             <button
-            disabled={true}
-              className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+              disabled
+              className=" text-[#A8ACB3] px-2 py-1 rounded ml-2 bg-[#CBCDD2]"
             >
               <span className="text-3xl">
                 <MdPublish />
