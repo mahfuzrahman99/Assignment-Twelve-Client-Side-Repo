@@ -20,7 +20,7 @@ const PaymentHistory = () => {
   });
 
   return (
-    <div  className="max-w-4xl mx-auto w-[300px] md:w-auto">
+    <div  className="max-w-[1120px] mx-auto w-[300px] md:w-auto">
     <Helmet>
       <title>CareCampusPro | Payment History</title>
     </Helmet>
@@ -32,13 +32,12 @@ const PaymentHistory = () => {
           <h1 className="text-xl md:text-3xl font-bold">
             Total Payments: {payment.length}
           </h1>
-          <div className=" overflow-x-auto overflow-hidden">
+          <div className=" overflow-x-auto overflow-hidden ">
             <table className="min-w-full bg-white table table-md">
               <thead className="rounded-t-xl bg-[#6db2da]">
                 <tr className="rounded-t-xl text-white bg-[#6db2da]">
                   <th className="py-2 px-4 border-b">NO</th>
                   <th className="py-2 px-4 border-b">NAME</th>
-                  <th className="py-2 px-4 border-b">TOTAL CAMP FEES</th>
                   <th className="py-2 px-4 border-b">VENUE</th>
                   <th className="py-2 px-4 border-b">CAMP FEES</th>
                   <th className="py-2 px-4 border-b">CONFIRMATION STATUS</th>

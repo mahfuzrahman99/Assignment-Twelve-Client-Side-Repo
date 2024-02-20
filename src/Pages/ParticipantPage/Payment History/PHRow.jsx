@@ -2,7 +2,6 @@
 
 const PHRow = ({ i, payment }) => {
   const {
-    camp_fees_total,
     transactionId,
     date,
     camp_name,
@@ -11,12 +10,12 @@ const PHRow = ({ i, payment }) => {
     confirmationStatus,
     paymentStatus,
   } = payment || {};
+  console.log(payment.camp_fees)
   return (
     <>
       <tr className="bg-gray-100">
         <td className="py-2 px-4 border-b-4">{i + 1}</td>
         <td className="py-2 px-4 border-b-4">{camp_name}</td>
-        <td className="py-2 px-4 border-b-4">${camp_fees_total}</td>
         <td className="py-2 px-4 border-b-4">${venue}</td>
         <td className="py-2 px-4 border-b-4">${camp_fees}</td>
         <td className="py-2 px-4 border-b-4">{confirmationStatus}</td>

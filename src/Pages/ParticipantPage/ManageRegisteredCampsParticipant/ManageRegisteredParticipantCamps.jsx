@@ -22,13 +22,13 @@ console.log(data.participants);
   }
    
   return (
-    <div className="max-w-4xl md:mx-auto mb-24 w-[300px] md:w-auto">
+    <div className="max-w-5xl md:mx-auto w-[300px] md:w-auto">
       <Helmet>
         <title>CareCampusPro | Manage Registered Camps</title>
       </Helmet>
       <SectionTitle heading={"Manage Registered Camps"} subHeading={"Hurry Up..."} />
       <div className="">
-        <div className="bg-white p-4 overflow-x-auto">
+        <div className="bg-white p-4 overflow-x-auto   md:h-[70vh] overflow-y-auto">
           <h1 className="text-xl md:text-3xl font-bold">
             Total Payment: {data?.participants?.length}
           </h1>

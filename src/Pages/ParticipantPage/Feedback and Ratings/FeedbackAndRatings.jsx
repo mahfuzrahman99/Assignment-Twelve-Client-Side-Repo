@@ -20,7 +20,7 @@ const FeedbackAndRatings = () => {
   });
 
   return (
-    <div  className="max-w-4xl mx-auto w-[300px] md:w-auto">
+    <div  className="max-w-[1120px] mx-auto w-[300px] md:w-auto">
     <Helmet>
       <title>CareCampusPro | Payment History and feedback</title>
     </Helmet>
