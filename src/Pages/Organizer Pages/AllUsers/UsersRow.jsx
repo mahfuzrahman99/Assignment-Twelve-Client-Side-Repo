@@ -10,7 +10,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 const UsersRow = ({ user, i, handleRemove,refetch }) => {
   const { user: user1 } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
-
+  // console.log(user._id)
   const handleUpdateUserRole = async (event) => {
     const role = event.target.innerText;
     
@@ -93,14 +93,12 @@ const UsersRow = ({ user, i, handleRemove,refetch }) => {
           </div>
         </td>
         <td className="py-2 px-4 border-b-4">
-          {
             <button
               onClick={() => handleRemove(user._id, user)}
               className="bg-red-500 text-white text-3xl p-2 rounded ml-2"
             >
               <IoPersonRemoveOutline />
             </button>
-          }
         </td>
       </tr>
     </>

@@ -15,7 +15,8 @@ const AllUsers = () => {
     },
   });
 
-  const handleRemove = async (user) => {
+  const handleRemove = async ( id, user) => {
+    console.log(id)
     const confirmed = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to remove him!",
@@ -27,7 +28,7 @@ const AllUsers = () => {
     });
     if (confirmed.isConfirmed) {
       try {
-        const res = await axiosSecure.delete(`/users/${user._id}`);
+        const res = await axiosSecure.delete(`/users/${id}`);
         if (res.data.deletedCount > 0) {
           refetch();
           Swal.fire({
